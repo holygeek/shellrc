@@ -1,0 +1,4 @@
+# Checkout dircolors-solarized/dircolors.256dark from github and symbolic link
+# it from ~/.dircolors
+eval `dircolors ~/.dircolors`
+

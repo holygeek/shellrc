@@ -1,0 +1,2 @@
+PATH=$HOME/bin:$HOME/wmgr:$PATH
+export PATH
