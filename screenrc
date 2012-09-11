@@ -1,0 +1,17 @@
+# Tell screen how to set colors. AB = background, AF = foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'                                                               
+# So that vim's t_ti and t_te works (restorescreen)
+altscreen on
+msgwait 2
+#screen -t post_initialization 39 sh -c 'sleep 1; screen -X msgwait 5'
+#screen ssh-agent zsh
+
+vbell off
+caption always
+
+caption string "%{= BW}%w %h%=%D %M %d %C%a"
+defscrollback 10000
+
+
+windowlist title "Num Name%=Location Flags"
+windowlist string "%03n %t%=%h %f"
