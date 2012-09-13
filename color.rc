@@ -1,0 +1,6 @@
+color_escape() {
+  echo "[$*m"
+}
+export lightblue=`color_escape '00;38;5;33'`
+export reset=`color_escape '0'`
+
