@@ -1,6 +1,7 @@
 # xterms.rc: Use in tandem with wmgr
-
-export TERM=xterm
-#export TERM=screen-256color
-echo $WINDOWID > /tmp/term.$TERM_NAME.winid
-HISTFILE=~/.histfile.${TERM_NAME:-others}
+if [ -d $HOME/wmgr ]; then
+  export TERM=xterm
+  #export TERM=screen-256color
+  echo $WINDOWID > /tmp/term.$TERM_NAME.winid
+  HISTFILE=~/.histfile.${TERM_NAME:-others}
+fi
