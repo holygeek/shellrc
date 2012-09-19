@@ -1,13 +1,16 @@
 alias co='git number checkout'
+alias add2git='add2git --via cpanm'
 alias cp='cp -i'
 alias deb='sudo apt-get'
 alias ds='du -s * | sort -n'
+alias cgrep='grep --color=always'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias ga='git number add'
 alias gap='git number add -p'
 alias gca='git commit --amend'
 alias -g CD='colordiff|less'
+alias grc='git rebase --continue'
 alias gcv="GIT_EDITOR=\"vim -c 'normal gg/^diffdGgg:bot newP:set ft=diff buftype=nofile nospell:nohlsearch:wincmd k'\" git commit -v"
 alias gdc='git number diff --cached'
 alias gd='git number diff'
@@ -16,7 +19,7 @@ alias gn='git number'
 alias -g P='`p`'
 alias grep='grep --color=auto'
 alias lrt='ls -lrt'
-alias ls='ls --color'
+alias ls='ls --color=auto'
 alias mv='mv -i'
 alias rm='rm -i'
 alias show='apt-cache show'
