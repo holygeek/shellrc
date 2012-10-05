@@ -9,14 +9,12 @@ alias fgrep='fgrep --color=auto'
 alias ga='git number add'
 alias gap='git number add -p'
 alias gca='git commit --amend'
-alias -g CD='colordiff|less'
 alias grc='git rebase --continue'
 alias gcv="GIT_EDITOR=\"vim -c 'normal gg/^diffdGgg:bot newP:set ft=diff buftype=nofile nospell:nohlsearch:wincmd k'\" git commit -v"
 alias gdc='git number diff --cached'
 alias gd='git number diff'
 alias ge='git number -c'
 alias gn='git number'
-alias -g P='`p`'
 alias grep='grep --color=auto'
 alias lrt='ls -lrt'
 alias ls='ls --color=auto'
@@ -25,6 +23,13 @@ alias rm='rm -i'
 alias show='apt-cache show'
 alias u='cd ..'
 alias vl='git number -c vi'
+alias zen="zstyle ':vcs_info:*' enable"
+
+alias -g CD='colordiff|less'
+alias -g ENV="|tr '\000' '\n'"
+alias -g NO='--name-only'
+alias -g P='`p`'
+alias -g 'P.'='`p -.`'
 
 for cmd in \
 	find
