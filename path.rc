@@ -1,2 +1,6 @@
-PATH=$HOME/bin:$HOME/wmgr:$PATH
+PATH=$HOME/bin:$HOME/wmgr:$HOME/go/bin:$PATH
 export PATH
+
+# compile go:
+# $ hg clone -u release https://code.google.com/p/go
+# $ cd go/src && ./all.bash
