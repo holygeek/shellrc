@@ -10,8 +10,7 @@ vbell off
 caption always
 
 caption string "%{= BW}%w %h%=%D %M %d %C%a"
-defscrollback 10000
-
+defscrollback 19000
 
 windowlist title "Num Name%=Location Flags"
 windowlist string "%03n %t%=%h %f"
