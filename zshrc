@@ -1,5 +1,3 @@
-source $HOME/.shell/main.sh
-
 # Lines configured by zsh-newuser-install
 HISTSIZE=10000
 SAVEHIST=10000
@@ -29,3 +27,4 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+source $HOME/.shell/main.sh
