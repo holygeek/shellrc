@@ -32,7 +32,8 @@ alias -g P='`p`'
 alias -g 'P.'='`p -.`'
 
 for cmd in \
-	find
+	find \
+        dpkg
 do
-	alias $cmd='noglob find'
+	alias $cmd="noglob $cmd"
 done
