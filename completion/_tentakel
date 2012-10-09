@@ -1,0 +1,25 @@
+#compdef tentakel
+
+_arguments \
+  '-c[config file]' \
+  '-g[group name]:group name:->group_name' \
+  '-l[show group list]' \
+  '-h[show help]' \
+  '-v[show version]' \
+  '*::arguments:_normal'
+
+  #'-:command name: _command_names -e' \
+
+local _groups
+(( $+functions[_get_groups] )) ||
+_get_groups () {
+  _groups=( $(tentakel -l | tail -1) )
+}
+
+[[ -n "$state" ]] &&
+case "$state" in
+ group_name)
+   _get_groups
+   compadd -a "$@" - _groups
+ ;;
+esac
