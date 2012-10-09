@@ -1,3 +1,6 @@
+alias ..='cd ../..'
+alias ...='cd ../../..'
+alias ....='cd ../../../..'
 alias co='git number checkout'
 alias add2git='add2git --via cpanm'
 alias cp='cp -i'
