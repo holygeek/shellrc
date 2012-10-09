@@ -1,0 +1,3 @@
+#compdef bin
+
+compadd -X 'Home brew scripts:' -- $(ls ~/bin ~/wmgr)
