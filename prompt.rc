@@ -60,3 +60,15 @@ else
 
   RPROMPT="%L %{$green%}%*\$RPROMPT_HOST%{$reset%}"
 fi
+
+# When a line is killed, put it in the history anyway in case we want to
+# return to it
+TRAPINT() {
+       # Store the current buffer in the history.
+       zle &&
+       [[ $HISTNO -eq $HISTCMD ]] && # only if we're not back in the history
+       print -s -r -- $BUFFER
+
+       # Return the default exit code so zsh aborts the current command.
+       return $1
+}
