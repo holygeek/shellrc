@@ -1,4 +1,5 @@
 FPATH=$FPATH:~/.shell/completion
+source $HOME/.shell/main.sh
 
 # Lines configured by zsh-newuser-install
 HISTSIZE=10000
@@ -28,5 +29,3 @@ zstyle :compinstall filename '/home/nazri/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-
-source $HOME/.shell/main.sh
