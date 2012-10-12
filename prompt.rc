@@ -72,3 +72,18 @@ TRAPINT() {
        # Return the default exit code so zsh aborts the current command.
        return $1
 }
+
+chpwd() {
+  case "$TERM_NAME" in
+    rtfm) ;;
+    #*) screen -X title ${PWD##*/} ;;
+    *) screen -X title ${(D)PWD#$HOME/} ;;
+  esac
+}
+
+preexec() {
+  short_command=$2
+  case "$TERM_NAME" in
+    rtfm) screen -X title $short_command ;;
+  esac
+}
