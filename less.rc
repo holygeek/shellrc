@@ -1,4 +1,4 @@
-export LESS=-FSRX
+export LESS=-FRX
 export LESS_TERMCAP_mb=$(tput setaf 2) # green
 export LESS_TERMCAP_md=$(tput setaf 2) # cyan
 export LESS_TERMCAP_me=$(tput sgr0)
