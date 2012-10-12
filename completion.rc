@@ -1,6 +1,7 @@
 TermsMatcher() {
-  matches=(`termsmatch -e $TERM_NAME -- "^${PREFIX}"`)
-  compadd $matches
+  local matches
+  matches=(`termsmatch -- "${PREFIX}"`)
+  compadd -- $matches
 }
 zle -C termsmatcher expand-or-complete TermsMatcher
 bindkey '' termsmatcher
