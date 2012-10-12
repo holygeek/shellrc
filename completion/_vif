@@ -1,3 +1,3 @@
 #compdef vif
 
-compadd -- $(git ls-files | sed -e 's,.*/,,')
+compadd -- $(git ls-files -- "*/$PREFIX*" | sed -e 's,.*/,,')
