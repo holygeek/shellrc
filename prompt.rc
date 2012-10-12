@@ -75,6 +75,7 @@ TRAPINT() {
 
 chpwd() {
   case "$TERM_NAME" in
+    "");;
     rtfm) ;;
     #*) screen -X title ${PWD##*/} ;;
     *) screen -X title ${(D)PWD#$HOME/} ;;
@@ -84,6 +85,7 @@ chpwd() {
 preexec() {
   short_command=$2
   case "$TERM_NAME" in
+    "");;
     rtfm) screen -X title $short_command ;;
   esac
 }
