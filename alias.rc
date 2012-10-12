@@ -38,3 +38,6 @@ for cmd in \
 do
 	alias $cmd="noglob $cmd"
 done
+
+compdef vi=vim
+compdef gn=git
