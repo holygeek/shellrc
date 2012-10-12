@@ -29,3 +29,5 @@ zstyle :compinstall filename '/home/nazri/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+autoload zmv
