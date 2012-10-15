@@ -3,21 +3,21 @@ TermsMatcher() {
   matches=(`termsmatch -- "${PREFIX}"`)
   compadd -- $matches
 }
-zle -C termsmatcher expand-or-complete TermsMatcher
-bindkey '' termsmatcher
+zle -C terms-matcher expand-or-complete TermsMatcher
+bindkey '' terms-matcher
 
 HistoryTermMatcher() {
   local matches
   matches=(`fc -l -m "*${PREFIX}*" -500|sed -e 's/^[0-9]\+//'`)
   compadd -- $matches
 }
-zle -C historytermsmatcher expand-or-complete HistoryTermMatcher
-bindkey '' historytermsmatcher
+zle -C history-terms-matcher expand-or-complete HistoryTermMatcher
+bindkey '' history-terms-matcher
 
 ClipboardTermMatcher() {
   local matches
   matches=(`xclip -o`)
   compadd -- $matches
 }
-zle -C clipboardtermmatcher expand-or-complete ClipboardTermMatcher
-bindkey '' clipboardtermmatcher
+zle -C clipboard-terms-matcher expand-or-complete ClipboardTermMatcher
+bindkey '' clipboard-terms-matcher
