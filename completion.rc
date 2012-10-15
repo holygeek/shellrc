@@ -5,3 +5,19 @@ TermsMatcher() {
 }
 zle -C termsmatcher expand-or-complete TermsMatcher
 bindkey '' termsmatcher
+
+HistoryTermMatcher() {
+  local matches
+  matches=(`fc -l -m "*${PREFIX}*" -500|sed -e 's/^[0-9]\+//'`)
+  compadd -- $matches
+}
+zle -C historytermsmatcher expand-or-complete HistoryTermMatcher
+bindkey '' historytermsmatcher
+
+ClipboardTermMatcher() {
+  local matches
+  matches=(`xclip -o`)
+  compadd -- $matches
+}
+zle -C clipboardtermmatcher expand-or-complete ClipboardTermMatcher
+bindkey '' clipboardtermmatcher
