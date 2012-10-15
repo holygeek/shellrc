@@ -1,3 +1,6 @@
 #compdef bin
+local cmd
+cmd='ls ~/bin'
+test -d ~/wmgr && cmd="$cmd ~/wmgr"
 
-compadd -X 'Home brew scripts:' -- $(ls ~/bin ~/wmgr)
+compadd -X 'Home brew scripts:' -- $(eval $cmd)
