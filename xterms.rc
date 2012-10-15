@@ -1,5 +1,3 @@
 # xterms.rc: Use in tandem with wmgr
-if [ -d $HOME/wmgr ]; then
-  export TERM=xterm
-  HISTFILE=~/.histfile.${TERM_NAME:-others}
-fi
+export TERM=xterm
+HISTFILE=~/.histfile.${TERM_NAME:-others}
