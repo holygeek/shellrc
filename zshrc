@@ -1,4 +1,5 @@
 FPATH=$FPATH:~/.shell/completion
+source /usr/share/autojump/autojump.sh
 
 # Lines configured by zsh-newuser-install
 HISTSIZE=10000
