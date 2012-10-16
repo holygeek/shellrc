@@ -21,6 +21,7 @@ alias ls='ls --color=auto'
 alias mv='mv -i'
 alias rm='rm -i'
 alias show='apt-cache show'
+alias ttk='tentakel'
 alias u='cd ..'
 alias vl='git number -c vi'
 alias zen="zstyle ':vcs_info:*' enable"
@@ -41,3 +42,4 @@ done
 
 compdef vi=vim
 compdef gn=git
+compdef ttk=tentakel
