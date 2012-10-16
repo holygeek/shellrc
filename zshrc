@@ -1,5 +1,4 @@
 FPATH=$FPATH:~/.shell/completion
-source $HOME/.shell/main.sh
 
 # Lines configured by zsh-newuser-install
 HISTSIZE=10000
@@ -31,3 +30,6 @@ compinit
 # End of lines added by compinstall
 
 autoload zmv
+
+source $HOME/.shell/main.sh
+compinit
