@@ -21,3 +21,7 @@ ClipboardTermMatcher() {
 }
 zle -C clipboard-terms-matcher expand-or-complete ClipboardTermMatcher
 bindkey '' clipboard-terms-matcher
+
+compe() {
+  vi `find -L ~/.shell -name "_$1"`
+}

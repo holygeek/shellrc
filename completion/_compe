@@ -1,0 +1,3 @@
+#compdef compe
+
+compadd -X 'Completion scripts:' -- $(find -L ~/.shell -name "_*"|sed -e 's|.*/_||')
