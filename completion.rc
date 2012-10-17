@@ -1,6 +1,6 @@
 TermsMatcher() {
   local matches
-  matches=(`termsmatch -- "${PREFIX:s/\*/.*/}"`)
+  matches=(`termsmatch -- "${PREFIX:s/\*/.*/}"|grep -v -F "$PREFIX"`)
   compadd -- $matches
 }
 zle -C terms-matcher expand-or-complete TermsMatcher
