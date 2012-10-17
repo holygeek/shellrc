@@ -31,6 +31,7 @@ alias -g ENV="|tr '\000' '\n'"
 alias -g NO='--name-only'
 alias -g P='`p`'
 alias -g 'P.'='`p -.`'
+alias -g V='`vs`'
 
 for cmd in \
 	find \
