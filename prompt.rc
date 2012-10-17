@@ -23,7 +23,7 @@ if [ "x$use_vcs_info" = "xy" ]; then
   zstyle ':vcs_info:*' formats       \
     '(%s) %b'
   zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-  precmd () {
+  precmd_hook () {
     if [ $PWD '=~' /$NFS_MOUNTED/ ]; then
       vcs_info_msg_0_=' (nfs mounted)'
     else
@@ -50,7 +50,7 @@ else
     source $git_prompt
     GIT_PS1_SHOWDIRTYSTATE=true
 
-    precmd() {
+    precmd_hook() {
       GIT_STATUS=`__git_ps1 ' (%s)'`
     }
     PS1="%{$blue%}\$PS1_HOST%~%{$yellow%}\$GIT_STATUS %(1j.(%j).)%{$reset%}\$PS1_END"
@@ -80,6 +80,10 @@ chpwd() {
     #*) screen -X title ${PWD##*/} ;;
     *) screen -X title ${(D)PWD#$HOME/} ;;
   esac
+}
+
+precmd() {
+  precmd_hook
 }
 
 preexec() {
