@@ -90,6 +90,6 @@ preexec() {
   short_command=$2
   case "$TERM_NAME" in
     "");;
-    rtfm) screen -X title $short_command ;;
+    rtfm) screen -X title ${short_command#man } ;;
   esac
 }
