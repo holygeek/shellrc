@@ -8,6 +8,7 @@ bindkey '' terms-matcher
 
 TermsFileMatcher() {
   local matches
+  PREFIX="*$PREFIX"
   matches=(`termsmatch -/ -- ".*${PREFIX:s/\*/.*/}"|grep -v -F "$PREFIX"`)
   compadd -- $matches
 }
