@@ -6,6 +6,14 @@ TermsMatcher() {
 zle -C terms-matcher expand-or-complete TermsMatcher
 bindkey '' terms-matcher
 
+TermsFileMatcher() {
+  local matches
+  matches=(`termsmatch -/ -- ".*${PREFIX:s/\*/.*/}"|grep -v -F "$PREFIX"`)
+  compadd -- $matches
+}
+zle -C terms-file-matcher expand-or-complete TermsFileMatcher
+bindkey '' terms-file-matcher
+
 HistoryTermMatcher() {
   local matches
   matches=(`fc -l -m "*${PREFIX}*" -500|sed -e 's/^[0-9]\+//'`)
