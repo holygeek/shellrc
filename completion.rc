@@ -9,8 +9,7 @@ bindkey '' terms-matcher
 
 TermsFileMatcher() {
   local matches
-  PREFIX="*$PREFIX"
-  matches=(`termsmatch -/ -- ".*${PREFIX:s/\*/.*/}"|grep -v -F "$PREFIX"`)
+  matches=(`termsmatch -/ -- ".*${PREFIX:s/\*/.*/}"|grep -v "^$PREFIX\$"`)
   compadd -- $matches
 }
 zle -C terms-file-matcher expand-or-complete TermsFileMatcher
