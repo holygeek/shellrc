@@ -1,0 +1,5 @@
+#compdef vimhelp
+local -a matches
+matches=( $(grep -h "^$PREFIX" /usr/local/share/vim/vim73/doc/tags `find ~/.vim -wholename '*doc/tags'`|awk '{print $1}'|sort -u) )
+
+compadd -X 'Vim help tags:' -- $matches

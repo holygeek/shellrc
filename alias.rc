@@ -42,5 +42,6 @@ do
 done
 
 compdef vi=vim
+compdef vih=vimhelp
 compdef gn=git
 compdef ttk=tentakel
