@@ -3,4 +3,5 @@ color_escape() {
 }
 export lightblue=`color_escape '00;38;5;33'`
 export reset=`color_escape '0'`
+export red=`color_escape '31'`
 
