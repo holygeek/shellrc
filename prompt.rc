@@ -1,6 +1,7 @@
 setopt prompt_subst
-PS1_END='
-%# '
+PS1_END="
+%{$red%}%(?..!%?! )%{$reset%}%# "
+
 
 autoload -Uz vcs_info
 use_vcs_info=
