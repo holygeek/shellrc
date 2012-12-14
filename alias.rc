@@ -53,3 +53,11 @@ function cn() {
   test -d $file && cd $file && return
   test -f $file && cd $(dirname $file)
 }
+
+# cd to a process' PWD
+function cdp() {
+	local pid=$1
+	test -z "$pid" && return
+	pwd=`cat /proc/$pid/environ|tr '\000' '\n'|grep '^PWD='|sed -e 's/PWD=//'`
+	cd $pwd
+}
