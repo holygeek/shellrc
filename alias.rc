@@ -4,6 +4,7 @@ alias ....='cd ../../../..'
 alias co='git number checkout'
 alias add2git='add2git --via cpanm'
 alias cp='cp -i'
+alias d='dict'
 alias deb='sudo apt-get'
 alias ds='du -s * | sort -n'
 alias ga='git number add'
@@ -45,3 +46,10 @@ compdef vi=vim
 compdef vih=vimhelp
 compdef gn=git
 compdef ttk=tentakel
+
+function cn() {
+  test -z "$1" && return
+  file=`git list $1`
+  test -d $file && cd $file && return
+  test -f $file && cd $(dirname $file)
+}
