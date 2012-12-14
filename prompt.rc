@@ -62,6 +62,11 @@ else
   RPROMPT="%{$green%}%*\$RPROMPT_HOST%{$reset%}"
 fi
 
+case $TERM_NAME in
+  any) RPROMPT=;;
+  bigterm) RPROMPT=;;
+esac
+
 # When a line is killed, put it in the history anyway in case we want to
 # return to it
 TRAPINT() {
