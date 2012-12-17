@@ -86,6 +86,7 @@ chpwd() {
     #*) screen -X title ${PWD##*/} ;;
     *) screen -X title ${(D)PWD#$HOME/} ;;
   esac
+  echo $PWD > /dev/shm/$$.cwd
 }
 
 precmd() {
