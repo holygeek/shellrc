@@ -1,0 +1,3 @@
+#compdef cds
+paths=( $( cat /dev/shm/*.cwd|grep -v "^$HOME$"|sed -e "s|$HOME/||"|sort -u ) )
+compadd -d paths -o -- $paths

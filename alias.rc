@@ -47,6 +47,14 @@ compdef vih=vimhelp
 compdef gn=git
 compdef ttk=tentakel
 
+function cds() {
+  new_dir="$@"
+  case $new_dir in
+    /*) cd "$@";;
+    *) cd "$HOME/$@";;
+  esac
+}
+
 function cn() {
   test -z "$1" && return
   file=`git list $1`
