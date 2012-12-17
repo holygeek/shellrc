@@ -2,7 +2,7 @@ TermsMatcher() {
   local matches
   exclude="^${PREFIX:gs/\*/\\*/}\$"
   PREFIX="*$PREFIX"
-  matches=(`termsmatch -- "${PREFIX:gs/\*/.*/}"|grep -v $exclude`)
+  matches=(`termsmatch -a -- "${PREFIX:gs/\*/.*/}"|grep -v $exclude`)
   compadd -- $matches
 }
 zle -C terms-matcher expand-or-complete TermsMatcher
@@ -12,7 +12,7 @@ TermsFileMatcher() {
   local matches
   exclude="^${PREFIX:gs/\*/\\*/}\$"
   PREFIX="*$PREFIX"
-  matches=(`termsmatch -/ -- "${PREFIX:gs/\*/.*/}"|grep -v $exclude`)
+  matches=(`termsmatch -a -/ -- "${PREFIX:gs/\*/.*/}"|grep -v $exclude`)
   compadd -- $matches
 }
 zle -C terms-file-matcher expand-or-complete TermsFileMatcher
