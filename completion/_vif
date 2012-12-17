@@ -1,3 +1,4 @@
 #compdef vif
 
-compadd -- $(git ls-files | grep -i ".*/$PREFIX" | sed -e 's,.*/,,')
+paths=( $( mgit ls-files | grep -i ".*/$PREFIX" ) )
+compadd -d paths -o -- $paths:t
