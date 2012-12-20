@@ -37,3 +37,12 @@ bindkey '' clipboard-terms-matcher
 compe() {
   vi `find -L ~/.shell -name "_$1"`
 }
+
+GitLsFilesMatcher() {
+  local matches pattern
+  PREFIX="*$PREFIX*"
+  matches=(`git ls-files -- "$PREFIX"`)
+  compadd -Q -- $matches
+}
+zle -C git-ls-files-matcher expand-or-complete GitLsFilesMatcher
+bindkey '' git-ls-files-matcher
