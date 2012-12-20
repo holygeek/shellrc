@@ -13,7 +13,7 @@ TermsFileMatcher() {
   exclude="^${PREFIX:gs/\*/\\*/}\$"
   PREFIX="*$PREFIX"
   matches=(`termsmatch -a -/ -- "${PREFIX:gs/\*/.*/}"|grep -v $exclude`)
-  compadd -- $matches
+  compadd -Q -- $matches
 }
 zle -C terms-file-matcher expand-or-complete TermsFileMatcher
 bindkey '' terms-file-matcher
