@@ -24,7 +24,6 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias show='apt-cache show'
 alias ttk='tentakel'
-alias u='cd ..'
 alias vl='git number -c vi'
 alias zen="zstyle ':vcs_info:*' enable"
 
@@ -100,4 +99,13 @@ function cdp() {
 	test -z "$pid" && return
 	pwd=`cat /proc/$pid/environ|tr '\000' '\n'|grep '^PWD='|sed -e 's/PWD=//'`
 	cd $pwd
+}
+
+function u() {
+	nup=${1:-1}
+	t=''
+	for i in {1..$nup}; do
+		t="$t../"
+	done
+	cd $t
 }
