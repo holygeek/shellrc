@@ -9,7 +9,8 @@ msgwait 2
 vbell off
 caption always
 
-caption string "%{= BW}%w %h%=%D %M %d %C%a"
+#caption string "%{= BW}%w %h%=%D %M %d %C%a"
+ caption string "%{= BW}$SHORT_TERM_NAME %w %h"
 defscrollback 19000
 
 windowlist title "Num Name%=Location Flags"
