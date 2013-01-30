@@ -25,6 +25,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias show='apt-cache show'
 alias ttk='tentakel'
+alias vgrep='git grep -Ovi'
 alias vl='git number -c vi'
 alias zen="zstyle ':vcs_info:*' enable"
 
