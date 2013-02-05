@@ -16,7 +16,7 @@ alias gcv="GIT_EDITOR=\"vim -c 'normal gg/^diffdGgg:bot newP:set ft=diff bufty
 alias gdc='git number diff --cached'
 alias gd='git number diff'
 alias ge='git number -c'
-alias gn='git number'
+alias gn='mgit number'
 alias grep='grep --color=auto'
 alias lrt='ls -lrt'
 alias ls='ls --color=auto'
