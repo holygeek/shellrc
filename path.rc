@@ -1,4 +1,4 @@
-PATH=$HOME/bin:$HOME/wmgr:$HOME/go/bin:$PATH
+PATH=$HOME/bin:$HOME/go/bin:$PATH
 export PATH
 
 # compile go:
