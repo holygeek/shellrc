@@ -26,13 +26,15 @@ HistoryTermMatcher() {
 zle -C history-terms-matcher expand-or-complete HistoryTermMatcher
 bindkey '' history-terms-matcher
 
-ClipboardTermMatcher() {
-  local matches
-  matches=(`xclip -o`)
-  compadd -- $matches
-}
-zle -C clipboard-terms-matcher expand-or-complete ClipboardTermMatcher
-bindkey '' clipboard-terms-matcher
+if [ -n "$DISPLAY" ]; then
+  ClipboardTermMatcher() {
+    local matches
+    matches=(`xclip -o`)
+    compadd -- $matches
+  }
+  zle -C clipboard-terms-matcher expand-or-complete ClipboardTermMatcher
+  bindkey '' clipboard-terms-matcher
+fi
 
 compe() {
   vi `find -L ~/.shell -name "_$1"`
