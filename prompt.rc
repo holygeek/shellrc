@@ -1,6 +1,13 @@
+# vim: set ts=2 sts=2 sw=2 expandtab
 setopt prompt_subst
 PS1_END="
 %{$red%}%(?..!%?! )%{$reset%}%# "
+PS1_HOST='%m:'
+RPROMPT_HOST='@%m'
+if [ -z "$SSH_TTY" ]; then
+  PS1_HOST=
+  RPROMPT_HOST=
+fi
 
 
 autoload -Uz vcs_info
@@ -38,13 +45,6 @@ else
   yellow="[33m"
   reset="[0m"
   blue="[00;38;5;33m"
-
-  PS1_HOST='%m:'
-  RPROMPT_HOST='@%m'
-  if [ `hostname` = a ]; then
-    PS1_HOST=
-    RPROMPT_HOST=
-  fi
 
   git_prompt=$HOME/src/git/contrib/completion/git-prompt.sh
   if [ -f $git_prompt ]; then
