@@ -58,7 +58,7 @@ function get_cds_candidates() {
 # cdf: do a cd to dirname of $1
 function cdf() {
   test -z "$1" && return
-  files=( `git ls-files -- "*/$1*"` )
+  files=( `mgit -p ls-files -- "*/$1*"` )
 
   if [ $#files -eq 1 ]; then
     wanted_path=${files[1]}
