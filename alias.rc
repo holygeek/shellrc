@@ -82,7 +82,7 @@ function cdf() {
 }
 
 function cds() {
-  new_dir=`get_cds_candidates $*`
+  new_dir=`get_cds_candidates $*|head -${2:-1}|tail -1`
   case $new_dir in
     /*) cd "$new_dir";;
     *) cd "$HOME/$new_dir";;
