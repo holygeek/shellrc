@@ -1,5 +1,10 @@
-PATH=$HOME/bin:$HOME/go/bin:$PATH
-export PATH
+if [ $PATH_IS_SET ]; then
+  :
+else
+  export PATH_IS_SET=0
+  PATH=$HOME/bin:$HOME/go/bin:$PATH
+  export PATH
+fi
 
 # compile go:
 # $ hg clone -u release https://code.google.com/p/go
