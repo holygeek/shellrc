@@ -1,10 +1,28 @@
-if [ $PATH_IS_SET ]; then
-  :
-else
-  export PATH_IS_SET=0
-  PATH=$HOME/bin:$HOME/go/bin:$PATH
-  export PATH
+# Careful, tthis file is also sourced by bash
+prepend_path() {
+  if [ -d $1 ]; then
+    PATH=$1:$PATH
+  fi
+}
+
+dedup_path() {
+  declare -A seen
+  P=DELETE
+  for p in ${(s,:,)PATH}; do
+    if [ -z "${seen[$p]}" ]; then
+      seen[$p]=1
+      P=$P:$p
+    fi
+  done
+  PATH=${P#DELETE:}
+}
+
+prepend_path $HOME/go/bin
+prepend_path $HOME/bin
+if [ -n "$ZSH_VERSION" ]; then
+  dedup_path
 fi
+export PATH
 
 # compile go:
 # $ hg clone -u release https://code.google.com/p/go
