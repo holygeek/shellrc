@@ -1,4 +1,4 @@
 #compdef vif cdf
 
-paths=( $( mgit tracked | grep -i ".*/$PREFIX" ) )
+paths=( $( mgit -p ls-files | grep -i ".*/$PREFIX" ) )
 compadd -d paths -o -- $paths:t
