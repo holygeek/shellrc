@@ -38,7 +38,7 @@ if [ "x$use_vcs_info" = "xy" ]; then
       vcs_info
     fi
   }
-  PS1='%F{2}%~%F{3}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
+  PS1='%F{2}$PS1_HOST%~%F{3}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
   RPROMPT="%F{2}%*%f"
 else
   green="[32m"
