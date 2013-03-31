@@ -112,3 +112,15 @@ function u() {
 	done
 	cd $t
 }
+
+function go() {
+	if [ "$1" = "cd" ]; then
+		shift
+		cd $(command go list -f '{{.Dir}}' $@ || echo .)
+	elif [ "$1" = "doc" ]; then
+		shift
+		command go doc $@|less
+	else
+		command go $@
+	fi
+}
