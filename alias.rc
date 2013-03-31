@@ -124,3 +124,24 @@ function go() {
 		command go $@
 	fi
 }
+
+function pickcolor() {
+	for theme in `highlight -w|grep -E '^[a-z]+$'`; do
+		clear
+		godoc -src fmt doPrint|
+		highlight -O xterm256 --syntax go --style $theme
+		echo $theme
+		read ans
+	done
+}
+function gosrc() {
+	style=moria
+	style=zenburn
+	style=anotherdark
+	godoc -src $@|
+	highlight -O xterm256 --syntax go --style $style
+}
+function goserve() {
+	echo "http://localhost:6060/"
+	godoc -http=:6060 -index -notes="BUG|TODO|FIXME"
+}
