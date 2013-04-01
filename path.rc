@@ -17,6 +17,9 @@ dedup_path() {
   PATH=${P#DELETE:}
 }
 
+if [ -n "$GOPATH" ]; then
+  prepend_path $GOPATH/bin
+fi
 prepend_path $HOME/go/bin
 prepend_path $HOME/bin
 if [ -n "$ZSH_VERSION" ]; then
