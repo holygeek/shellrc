@@ -54,7 +54,15 @@ compdef gn=git
 compdef ttk=tentakel
 
 function get_cds_candidates() {
-  cat /dev/shm/*.cwd|grep -v "^$HOME$"|sed -e "s:$HOME/::"|sort -u|grep ${1:-.}
+  # cat /dev/shm/*.cwd|grep -v "^$HOME$"|sed -e "s:$HOME/::"|sort -u|grep ${1:-.}
+  pgrep zsh|
+  while read pid; do
+    readlink /proc/$pid/cwd
+  done|
+  grep -v "^$HOME$"|
+  sed -e "s:$HOME/::"|
+  sort -u|
+  grep ${1:-.}
 }
 
 # cdf: do a cd to dirname of $1
