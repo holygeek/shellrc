@@ -1,3 +1,4 @@
 #compdef cds
+local paths
 paths=( $( get_cds_candidates $PREFIX ) )
 compadd -d paths -o -- $paths:t
