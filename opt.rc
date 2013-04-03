@@ -1,4 +1,6 @@
-setopt extended_glob
+# Make git log HEAD^ works:
+unsetopt extended_glob
+
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_no_store
