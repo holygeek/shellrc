@@ -134,6 +134,9 @@ function go() {
 		command go $@
 	fi
 }
+function godoc() {
+	command godoc $@|less
+}
 
 function pickcolor() {
 	for theme in `highlight -w|grep -E '^[a-z]+$'`; do
