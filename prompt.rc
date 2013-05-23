@@ -96,11 +96,11 @@ precmd() {
 }
 
 preexec() {
-  short_command=$2
+  typed_cmd=$1
   case "$TERM_NAME" in
     "");;
-    rtfm) mux title "${short_command#man }" ;;
-    *) mux title "${short_command}" ;;
+    rtfm) mux title "${typed_cmd#man }" ;;
+    *) mux title "${typed_cmd%% *}" ;;
   esac
 }
 
