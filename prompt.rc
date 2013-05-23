@@ -99,8 +99,8 @@ preexec() {
   short_command=$2
   case "$TERM_NAME" in
     "");;
-    rtfm) mux title ${short_command#man } ;;
-    *) mux title ${short_command} ;;
+    rtfm) mux title "${short_command#man }" ;;
+    *) mux title "${short_command}" ;;
   esac
 }
 
