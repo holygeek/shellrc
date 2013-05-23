@@ -92,13 +92,16 @@ chpwd() {
 
 precmd() {
   precmd_hook
+  mux title ${(D)PWD#$HOME/}
 }
 
 preexec() {
   short_command=$2
   case "$TERM_NAME" in
     "");;
-    # rtfm) screen -X title ${short_command#man } ;;
     rtfm) mux title ${short_command#man } ;;
+    *) mux title ${short_command} ;;
   esac
 }
+
+mux title ${(D)PWD#$HOME/}
