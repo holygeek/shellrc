@@ -84,28 +84,33 @@ TRAPINT() {
        return $1
 }
 
+mux_title() {
+  test -n "$TERM_NAME" &&
+  mux title "$*"
+}
+
 chpwd() {
   case "$TERM_NAME" in
     "");;
     rtfm) ;;
     #*) screen -X title ${PWD##*/} ;;
-    *) mux title ${(D)PWD#$HOME/} ;;
+    *) mux_title ${(D)PWD#$HOME/} ;;
   esac
   echo $PWD > /dev/shm/$$.cwd
 }
 
 precmd() {
   precmd_hook
-  mux title ${(D)PWD#$HOME/}
+  mux_title ${(D)PWD#$HOME/}
 }
 
 preexec() {
   typed_cmd=$1
   case "$TERM_NAME" in
     "");;
-    rtfm) mux title "${typed_cmd#man }" ;;
-    *) mux title "${typed_cmd%% *}" ;;
+    rtfm) mux_title "${typed_cmd#man }" ;;
+    *) mux_title "${typed_cmd%% *}" ;;
   esac
 }
 
-mux title ${(D)PWD#$HOME/}
+mux_title ${(D)PWD#$HOME/}
