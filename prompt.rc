@@ -38,7 +38,11 @@ if [ "x$use_vcs_info" = "xy" ]; then
       vcs_info
     fi
   }
-  PS1='%F{2}$PS1_HOST%~%F{3}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
+  if [ -n "$SSH_TTY" ]; then
+    PS1='%F{2}$PS1_HOST%~%F{3}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
+  else
+    PS1='%F{4}$PS1_HOST%~%F{3}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
+  fi
   RPROMPT="%F{2}%*%f"
 else
   green="[32m"
