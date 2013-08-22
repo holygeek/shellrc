@@ -1,9 +1,11 @@
 # Checkout dircolors-solarized/dircolors.256dark from github and symbolic link
 # it from ~/.dircolors
-dircolors_file=~/.dircolors.`hostname`
-if [ -f $dircolors_file ]; then
-  eval `dircolors $dircolors_file`
-else
-  eval `dircolors ~/.dircolors`
+if [ -z "$DIRCOLORS_DONE" ]; then
+  dircolors_file=~/.dircolors.`hostname`
+  if [ -f $dircolors_file ]; then
+    eval `dircolors $dircolors_file`
+  else
+    eval `dircolors ~/.dircolors`
+  fi
+  export DIRCOLORS_DONE=yes
 fi
-

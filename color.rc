@@ -1,7 +1,9 @@
-color_escape() {
-  echo "[$*m"
-}
-export lightblue=`color_escape '00;38;5;33'`
-export reset=`color_escape '0'`
-export red=`color_escape '31'`
-
+if [ -z "$COLOR_DONE" ]; then
+  color_escape() {
+    echo "[$*m"
+  }
+  export lightblue=`color_escape '00;38;5;33'`
+  export reset=`color_escape '0'`
+  export red=`color_escape '31'`
+  export COLOR_DONE=yes
+fi

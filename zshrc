@@ -1,3 +1,18 @@
+nanostamp() {
+  date +%s.%N
+}
+
+nanodiff() {
+  start=$1
+  end=$2
+  s_start=${start%.*}
+  n_start=${start#*.}
+  s_end=${end%.*}
+  n_end=${end#*.}
+  n_end=$(($n_end + (s_end - s_start) * 1000000000))
+  echo $((n_end - n_start))
+}
+
 FPATH=$FPATH:~/.shell/completion
 
 # Lines configured by zsh-newuser-install
@@ -15,7 +30,7 @@ zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 #zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' ignore-parents parent pwd .. directory
-zstyle ':completion:*' list-colors ''
+#zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' list-suffixes true
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=**'
@@ -26,10 +41,20 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle :compinstall filename '/home/nazri/.zshrc'
 
 autoload -Uz compinit
+[ -n "$BENCHTIME" ] && start=`nanostamp`
 compinit
 # End of lines added by compinstall
+if [ -n "$BENCHTIME" ]; then
+  end=`nanostamp`
+  echo -e `nanodiff $start $end` "\t compinit"
+fi
 
-autoload zmv
+#autoload zmv
 
 source $HOME/.shell/main.sh
+[ -n "$BENCHTIME" ] && start=`nanostamp`
 compinit
+if [ -n "$BENCHTIME" ]; then
+  end=`nanostamp`
+  echo -e `nanodiff $start $end` "\t compinit 2nd"
+fi

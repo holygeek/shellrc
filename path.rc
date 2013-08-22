@@ -1,4 +1,5 @@
 # Careful, tthis file is also sourced by bash
+if [ -z "$PATH_DONE" ]; then
 prepend_path() {
   if [ -d $1 ]; then
     PATH=$1:$PATH
@@ -30,3 +31,5 @@ export PATH
 # compile go:
 # $ hg clone -u release https://code.google.com/p/go
 # $ cd go/src && ./all.bash
+  export PATH_DONE=yes
+fi
