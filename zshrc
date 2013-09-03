@@ -41,10 +41,10 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle :compinstall filename '/home/nazri/.zshrc'
 
 autoload -Uz compinit
-[ -n "$BENCHTIME" ] && start=`nanostamp`
+[ -z "$BENCHTIME_DONE" ] && start=`nanostamp`
 compinit
 # End of lines added by compinstall
-if [ -n "$BENCHTIME" ]; then
+if [ -z "$BENCHTIME_DONE" ]; then
   end=`nanostamp`
   echo -e `nanodiff $start $end` "\t compinit"
 fi
@@ -52,9 +52,10 @@ fi
 #autoload zmv
 
 source $HOME/.shell/main.sh
-[ -n "$BENCHTIME" ] && start=`nanostamp`
+[ -z "$BENCHTIME_DONE" ] && start=`nanostamp`
 compinit
-if [ -n "$BENCHTIME" ]; then
+if [ -z "$BENCHTIME_DONE" ]; then
   end=`nanostamp`
   echo -e `nanodiff $start $end` "\t compinit 2nd"
 fi
+export BENCHTIME_DONE=true
