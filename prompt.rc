@@ -84,6 +84,10 @@ TRAPINT() {
        return $1
 }
 
+mux_title_curr_dir() {
+  test -n "$TERM_NAME" && mux title ${(D)PWD#$HOME/}
+}
+
 mux_title() {
   test -n "$TERM_NAME" && mux title "$*"
 }
@@ -93,14 +97,14 @@ chpwd() {
     "");;
     rtfm) ;;
     #*) screen -X title ${PWD##*/} ;;
-    *) mux_title ${(D)PWD#$HOME/} ;;
+    *) mux_title_curr_dir ;;
   esac
   echo $PWD > /dev/shm/$$.cwd
 }
 
 precmd() {
   precmd_hook
-  mux_title ${(D)PWD#$HOME/}
+  mux_title_curr_dir
 }
 
 preexec() {
@@ -112,4 +116,4 @@ preexec() {
   esac
 }
 
-mux_title ${(D)PWD#$HOME/}
+mux_title_curr_dir
