@@ -48,7 +48,7 @@ do
 	alias $cmd="noglob $cmd"
 done
 
-compdef vi=vim
+which _vim >/dev/null && compdef vi=vim
 compdef vih=vimhelp
 compdef gn=git
 compdef ttk=tentakel
