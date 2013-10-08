@@ -3,10 +3,10 @@ setopt prompt_subst
 PS1_END="
 %{$red%}%(?..!%?! )%{$reset%}%(!.#.\$) "
 PS1_HOST='%m:'
-RPROMPT_HOST='@%m'
+RPROMPT_HOST='%y@%m'
 if [ -z "$SSH_TTY" ]; then
   PS1_HOST=
-  RPROMPT_HOST=
+  RPROMPT_HOST=%y
 fi
 
 
@@ -43,7 +43,7 @@ if [ "x$use_vcs_info" = "xy" ]; then
   else
     PS1='%F{4}$PS1_HOST%~%F{3}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
   fi
-  RPROMPT="%F{2}%*%f"
+  RPROMPT="%F{4}\$RPROMPT_HOST%f"
 else
   green="[32m"
   yellow="[33m"
@@ -63,14 +63,13 @@ else
     PS1="%{$blue%}\$PS1_HOST%~ \$PS1_END"
   fi
 
-  RPROMPT="%{$green%}%*\$RPROMPT_HOST%{$reset%}"
+  RPROMPT="%{$blue%}\$RPROMPT_HOST%{$reset%}"
 fi
 
-RPROMPT=
-# case $TERM_NAME in
-#   any) RPROMPT=;;
-#   bigterm) RPROMPT=;;
-# esac
+case $TERM_NAME in
+  any) RPROMPT=;;
+  bigterm) RPROMPT=;;
+esac
 
 # When a line is killed, put it in the history anyway in case we want to
 # return to it
