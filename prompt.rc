@@ -88,7 +88,7 @@ mux_title_curr_dir() {
 }
 
 mux_title() {
-  test -n "$TERM_NAME" && mux title "$*"
+  test -n "$TERM_NAME" && mux title "'$*'"
 }
 
 chpwd() {
