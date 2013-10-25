@@ -68,25 +68,30 @@ function get_cds_candidates() {
 # cdf: do a cd to dirname of $1
 function cdf() {
   test -z "$1" && return
-  files=( `mgit -p ls-files -- "*/$1*"` )
 
-  if [ $#files -eq 1 ]; then
-    wanted_path=${files[1]}
-  elif [ $#files -gt 1 ]; then
-    c=1
-    echo "Choose path to cd into: "
-    for p in $files; do
-      echo "  $c. $p"
-      c=$((c + 1))
-    done
-    echo -n "Choose: "
-    read answer therest
-    if [ $answer -gt 0 -a $answer -le $#files ]; then
-      wanted_path=${files[$answer]}
-    fi
+  if [ -f "$1" ];
+  then
+    wanted_path=$1
   else
-    echo "cdf: $files: Not a file"
-    return
+    files=( `mgit -p ls-files -- "*/$1*"` )
+    if [ $#files -eq 1 ]; then
+      wanted_path=${files[1]}
+    elif [ $#files -gt 1 ]; then
+      c=1
+      echo "Choose path to cd into: "
+      for p in $files; do
+        echo "  $c. $p"
+        c=$((c + 1))
+      done
+      echo -n "Choose: "
+      read answer therest
+      if [ $answer -gt 0 -a $answer -le $#files ]; then
+        wanted_path=${files[$answer]}
+      fi
+    else
+      echo "cdf: $files: Not a file"
+      return
+    fi
   fi
   cd `dirname $wanted_path`
 }
