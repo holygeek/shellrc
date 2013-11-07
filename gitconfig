@@ -38,6 +38,7 @@
 [color "diff"]
 	#func = 167
 	func = 75
+	meta = cyan
 [rebase]
 	autosquash = true
 [diff]
