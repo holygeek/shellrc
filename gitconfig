@@ -5,8 +5,10 @@
 	name = Nazri Ramliy
 	email = ayiehere@gmail.com
 [alias]
+	ack = grep --heading -n --break
+	bc = branch-check
 	n = number
-	k = log --graph --decorate --oneline
+	k = log --graph --decorate --oneline --abbrev-commit
 	co = checkout
 	cbranch = "!git branch | grep '\\*'"
 	cbr = "!git branch | grep '\\*'"
@@ -17,6 +19,8 @@
 	forsvn = diff --name-only --relative
 	head = log -1 --oneline --decorate
 	lc = log --reverse -p -b ORIG_HEAD..
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset \
+%s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	logd = log --decorate
 	logg = log --date=relative --decorate
 	pronto2 = log -1 --oneline --decorate
@@ -27,11 +31,18 @@
 	suno = status -uno
 	ssu = status --short -uno
 	ctags = !.git/hooks/ctags
+[merge]
+	tool = vimdiff
 [push]
 	default = simple
+[core]
+	excludesfile = ~/.gitignore
 [grep]
 	lineNumber = 1
+[color "decorate"]
+	tag = reverse bold yellow
 [color "grep"]
+	separator = cyan
 	filename = blue
 	linenumber = yellow
 	match = green
@@ -53,6 +64,7 @@
 	branch = yes
 [include]
 	path = ~/work.aux/gitconfig
+	path = ~/.shell/gitconfig.local
 [init]
 	templatedir = ~/.vim/git_template
 [column]
