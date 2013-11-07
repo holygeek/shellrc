@@ -1,0 +1,58 @@
+# vim: sts&vim sw&vim tabstop&vim expandtab&vim
+[color]
+	ui = auto
+[user]
+	name = Nazri Ramliy
+	email = ayiehere@gmail.com
+[alias]
+	n = number
+	k = log --graph --decorate --oneline
+	co = checkout
+	cbranch = "!git branch | grep '\\*'"
+	cbr = "!git branch | grep '\\*'"
+	diffcw = diff --color-words
+	dr = diff --relative
+	drn = diff --relative --name-only
+	dt = difftool
+	forsvn = diff --name-only --relative
+	head = log -1 --oneline --decorate
+	lc = log --reverse -p -b ORIG_HEAD..
+	logd = log --decorate
+	logg = log --date=relative --decorate
+	pronto2 = log -1 --oneline --decorate
+	pronto = "!echo -n \"${lightblue}${PWD##*/}${reset} \" && \
+		git -c color.ui=always log -1 --oneline --decorate | \
+		cut -f 2- -d' '"
+	mirror = push --tags -f mirror master
+	suno = status -uno
+	ssu = status --short -uno
+	ctags = !.git/hooks/ctags
+[push]
+	default = simple
+[grep]
+	lineNumber = 1
+[color "grep"]
+	filename = blue
+	linenumber = yellow
+	match = green
+[color "diff"]
+	#func = 167
+	func = 75
+[rebase]
+	autosquash = true
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = no
+[log]
+	decorate = short
+	date = iso
+[pager]
+	whowhat = true
+	branch = yes
+[include]
+	path = ~/work.aux/gitconfig
+[init]
+	templatedir = ~/.vim/git_template
+[column]
+	ui = auto
