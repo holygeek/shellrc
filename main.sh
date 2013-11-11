@@ -16,7 +16,9 @@ do
     durations="$durations $duration \t$rcfile\n"
   fi
 done
-echo $PWD > /dev/shm/$$.cwd
+if [ - d /dev/shm/ ]; then
+  echo $PWD > /dev/shm/$$.cwd
+fi
 if [ -z "$BENCHTIME_DONE" ]; then
   echo -e $durations|sort -n
 fi
