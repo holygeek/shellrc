@@ -26,6 +26,8 @@ prepend_path $HOME/bin
 if [ -n "$ZSH_VERSION" ]; then
   dedup_path
 fi
+test -d ~/.$HOST.local/bin && PATH=~/.$HOST.local/bin:$PATH
+
 export PATH
 
 # compile go:
