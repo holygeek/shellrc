@@ -91,6 +91,8 @@ mux_title() {
   test -n "$TERM_NAME" && mux title "'$*'"
 }
 
+SHM_DIR=
+test -d /dev/shm && SHM_DIR=/dev/shm
 chpwd() {
   case "$TERM_NAME" in
     "");;
@@ -98,7 +100,7 @@ chpwd() {
     #*) screen -X title ${PWD##*/} ;;
     *) mux_title_curr_dir ;;
   esac
-  echo $PWD > /dev/shm/$$.cwd
+  test -n "$SHM_DIR" && echo $PWD > /dev/shm/$$.cwd
 }
 
 precmd() {
