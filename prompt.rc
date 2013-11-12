@@ -91,8 +91,6 @@ mux_title() {
   test -n "$TERM_NAME" && mux title "'$*'"
 }
 
-SHM_DIR=
-test -d /dev/shm && SHM_DIR=/dev/shm
 chpwd() {
   case "$TERM_NAME" in
     "");;

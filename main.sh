@@ -16,7 +16,10 @@ do
     durations="$durations $duration \t$rcfile\n"
   fi
 done
-if [ - d /dev/shm/ ]; then
+SHM_DIR=
+if [ -d /dev/shm ]; then
+  SHM_DIR=/dev/shm
+  export SHM_DIR
   echo $PWD > /dev/shm/$$.cwd
 fi
 if [ -z "$BENCHTIME_DONE" ]; then
