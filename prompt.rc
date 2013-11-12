@@ -32,11 +32,15 @@ if [ "x$use_vcs_info" = "xy" ]; then
     '(%s) %b'
   zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
   precmd_hook () {
-    if [ $PWD '=~' /$NFS_MOUNTED/ ]; then
+    test -z "$NFS_MOUNTED" && return
+    case $PWD in
+     *$NFS_MOUNTED*)
       vcs_info_msg_0_=' (nfs mounted)'
-    else
+      ;;
+     *)
       vcs_info
-    fi
+      ;;
+    esac
   }
   if [ -n "$SSH_TTY" ]; then
     PS1='%F{2}$PS1_HOST%~%F{3}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
