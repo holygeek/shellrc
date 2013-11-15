@@ -141,9 +141,13 @@ function go() {
 		command go $@
 	fi
 }
-function godoc() {
-	command godoc $@|less
-}
+
+# my godoc is broken :(
+#   $ ~/go/bin/godoc os.exec
+#   2013/11/15 09:27:37 readTemplate: open /home/nazri/go/lib/godoc/codewalk.html: no such file or directory
+#function godoc() {
+#	command godoc $@|less
+#}
 
 function pickcolor() {
 	for theme in `highlight -w|grep -E '^[a-z]+$'`; do
