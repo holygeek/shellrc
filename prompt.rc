@@ -95,6 +95,7 @@ mux_title() {
   test -n "$TERM_NAME" && mux title "'$*'"
 }
 
+test -n "$SSH_TTY" &&
 chpwd() {
   case "$TERM_NAME" in
     "");;
