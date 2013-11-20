@@ -37,6 +37,9 @@ if [ "x$use_vcs_info" = "xy" ]; then
         *$NFS_MOUNTED*)
           vcs_info_msg_0_=' (nfs mounted)'
           ;;
+        *)
+          vcs_info
+          ;;
       esac
     else
       vcs_info
