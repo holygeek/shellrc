@@ -1,6 +1,7 @@
 # xterms.rc: Use in tandem with wmgr
 export TERM=xterm
 export HISTFILE=~/.histfile
+stty -ixon
 tmpdir=/dev/shm
 if [ -n "$TERM_NAME" ]; then
   winidfile=$tmpdir/term.$TERM_NAME[1].winid
