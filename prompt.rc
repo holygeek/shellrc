@@ -91,11 +91,11 @@ TRAPINT() {
 }
 
 mux_title_curr_dir() {
-  test -n "$TERM_NAME" && mux title ${(D)PWD#$HOME/}
+  test -z "$NO_DYNAMIC_TITLE" && mux title ${(D)PWD#$HOME/}
 }
 
 mux_title() {
-  test -n "$TERM_NAME" && mux title "'$*'"
+  test -z "$NO_DYNAMIC_TITLE" && mux title "'$*'"
 }
 
 test -n "$SSH_TTY" &&
