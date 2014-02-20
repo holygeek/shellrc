@@ -13,6 +13,10 @@ nanodiff() {
   echo $((n_end - n_start))
 }
 
+print_with_thousands_grouping() {
+   /usr/bin/printf "%'13d" $1
+}
+
 FPATH=$FPATH:~/.shell/completion
 
 # Lines configured by zsh-newuser-install
@@ -46,7 +50,8 @@ compinit
 # End of lines added by compinstall
 if [ -z "$BENCHTIME_DONE" ]; then
   end=`nanostamp`
-  echo -e `nanodiff $start $end` "\t compinit"
+  duration=`nanodiff $start $end`
+  echo " $(print_with_thousands_grouping $duration) compinit"
 fi
 
 #autoload zmv
@@ -56,6 +61,7 @@ source $HOME/.shell/main.sh
 compinit
 if [ -z "$BENCHTIME_DONE" ]; then
   end=`nanostamp`
-  echo -e `nanodiff $start $end` "\t compinit 2nd"
+  duration=`nanodiff $start $end`
+  echo " $(print_with_thousands_grouping $duration) compinit 2nd"
 fi
 export BENCHTIME_DONE=true

@@ -13,7 +13,7 @@ do
   if [ -z "$BENCHTIME_DONE" ]; then
     end=`date +%s.%N`
     duration=`nanodiff $start $end`
-    durations="$durations $duration \t$rcfile\n"
+    durations="$durations `print_with_thousands_grouping $duration` $rcfile\n"
   fi
 done
 SHM_DIR=
