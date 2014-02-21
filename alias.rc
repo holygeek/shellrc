@@ -1,6 +1,7 @@
 alias ..='cd ../..'
 alias ...='cd ../../..'
 alias ....='cd ../../../..'
+alias ages='make -C ~/src/install ages'
 alias cdreal='cd $(readlink -e `pwd`)'
 alias co='git number checkout'
 alias add2git='add2git --via cpanm'
