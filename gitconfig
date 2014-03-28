@@ -69,3 +69,5 @@
 	templatedir = ~/.vim/git_template
 [column]
 	ui = auto
+[branch "master"]
+	rebase = true
