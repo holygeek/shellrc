@@ -27,10 +27,10 @@ if [ "x$use_vcs_info" = "xy" ]; then
 # zstyle ':vcs_info:*' enable svn git
   zstyle ':vcs_info:*' enable     git
   zstyle ':vcs_info:*' actionformats \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+    '%F{5}(%f%s%F{5})%F{2}-%F{5}[%F{2}%b%F{2}|%F{1}%a%F{5}]%f '
   zstyle ':vcs_info:*' formats       \
     '(%s) %b'
-  zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+  zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{2}%r'
   precmd_hook () {
     if [ -n "$NFS_MOUNTED" ]; then
       case $PWD in
@@ -46,11 +46,11 @@ if [ "x$use_vcs_info" = "xy" ]; then
     fi
   }
   if [ -n "$SSH_TTY" ]; then
-    PS1='%F{2}$PS1_HOST%~%F{3}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
+    PS1='%F{2}$PS1_HOST%~%F{2}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
   else
-    PS1='%F{4}$PS1_HOST%~%F{3}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
+    PS1='%F{3}$PS1_HOST%~%F{2}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
   fi
-  RPROMPT="%F{4}\$RPROMPT_HOST%f"
+  RPROMPT="%F{3}\$RPROMPT_HOST%f"
 else
   green="[32m"
   yellow="[33m"
