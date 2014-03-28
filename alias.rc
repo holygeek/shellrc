@@ -137,7 +137,7 @@ function go() {
 		cd $(command go list -f '{{.Dir}}' $@ || echo .)
 	elif [ "$1" = "doc" ]; then
 		shift
-		command go doc $@|less
+		command godoc $@|less
 	else
 		command go $@
 	fi
