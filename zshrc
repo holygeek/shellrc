@@ -65,3 +65,4 @@ if [ -z "$BENCHTIME_DONE" ]; then
   echo " $(print_with_thousands_grouping $duration) compinit 2nd"
 fi
 export BENCHTIME_DONE=true
+export tagsfile=.git/tags
