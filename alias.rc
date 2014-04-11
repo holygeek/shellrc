@@ -33,6 +33,7 @@ alias simplePS='precmd(){};chpwd(){};RPROMPT= PS1="\$ "'
 alias ttk='tentakel'
 alias vgrep='git grep -Ovi'
 alias vl='git number -c vi'
+alias vsv='ge vi --servername vsv'
 alias zen="zstyle ':vcs_info:*' enable"
 
 alias -g CD='colordiff|less'
