@@ -1,5 +1,8 @@
-if [ -z "$PERLBREW_DONE" ]; then
-  test -f $HOME/perl5/perlbrew/etc/bashrc &&
-  source $HOME/perl5/perlbrew/etc/bashrc
-  export PERLBREW_DONE=yes
+perlbrew_rc=$HOME/perl5/perlbrew/etc/bashrc
+if [ -f $perlbrew_rc ]; then
+  function perl() {
+    source $HOME/perl5/perlbrew/etc/bashrc
+    unfunction perl
+    perl "$@"
+  }
 fi
