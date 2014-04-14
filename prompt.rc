@@ -1,12 +1,13 @@
 # vim: set ts=2 sts=2 sw=2 expandtab
 setopt prompt_subst
+NJOB='%(1j.(%j) .)'
 PS1_END="
 %{$red%}%(?..!%?! )%{$reset%}%(!.#.\$) "
 PS1_HOST='%m:'
-RPROMPT_HOST='%y@%m'
+RPROMPT_HOST='%m'
 if [ -z "$SSH_TTY" ]; then
   PS1_HOST=
-  RPROMPT_HOST=%y
+  RPROMPT_HOST=
 fi
 
 
