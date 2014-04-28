@@ -1,8 +1,13 @@
 perlbrew_rc=$HOME/perl5/perlbrew/etc/bashrc
 if [ -f $perlbrew_rc ]; then
   function perl() {
-    source $HOME/perl5/perlbrew/etc/bashrc
     unfunction perl
+    source $HOME/perl5/perlbrew/etc/bashrc
     perl "$@"
+  }
+  function perldoc() {
+    unfunction perldoc
+    source $HOME/perl5/perlbrew/etc/bashrc
+    perldoc "$@"
   }
 fi
