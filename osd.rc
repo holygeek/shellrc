@@ -1,0 +1,24 @@
+osd() {
+  aosd_cat \
+    --font="DeJavu Sans Mono 28" \
+    --shadow-offset=1 \
+    --back-color=black \
+    --back-opacity=200 \
+    --position=7 \
+    --padding=20 \
+    --fore-color=green \
+    --fade-in=0 \
+    --fade-out=0 $*
+}
+
+osd_bad() {
+  osd \
+    --fore-color=red \
+    $*
+}
+
+osd_good() {
+  osd \
+    --fore-color=green \
+    $*
+}
