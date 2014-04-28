@@ -47,7 +47,8 @@ alias -g V='`vs`'
 for cmd in \
 	find \
         dpkg \
-        vif
+        vif \
+        sql
 do
 	alias $cmd="noglob $cmd"
 done
