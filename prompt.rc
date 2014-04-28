@@ -46,11 +46,11 @@ if [ "x$use_vcs_info" = "xy" ]; then
       vcs_info
     fi
   }
+  HOST_COLOR='3'
   if [ -n "$SSH_TTY" ]; then
-    PS1='%F{2}$PS1_HOST%~%F{2}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
-  else
-    PS1='%F{3}$PS1_HOST%~%F{2}${vcs_info_msg_0_} %(1j.(%j).)%f$PS1_END'
+    HOST_COLOR=2
   fi
+  PS1='%F{$HOST_COLOR}$NJOB$PS1_HOST%~%F{2}${vcs_info_msg_0_}%f$PS1_END'
   RPROMPT="%F{3}\$RPROMPT_HOST%f"
 else
   green="[32m"
@@ -66,9 +66,9 @@ else
     precmd_hook() {
       GIT_STATUS=`__git_ps1 ' (%s)'`
     }
-    PS1="%{$blue%}\$PS1_HOST%~%{$yellow%}\$GIT_STATUS %(1j.(%j).)%{$reset%}\$PS1_END"
+    PS1="%{$blue%}$NJOB\$PS1_HOST%~%{$yellow%}\$GIT_STATUS%{$reset%}\$PS1_END"
   else
-    PS1="%{$blue%}\$PS1_HOST%~ \$PS1_END"
+    PS1="%{$blue%}$NJOB\$PS1_HOST%~ \$PS1_END"
   fi
 
   RPROMPT="%{$blue%}\$RPROMPT_HOST%{$reset%}"
