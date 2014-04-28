@@ -122,7 +122,11 @@ preexec() {
   case "$TERM_NAME" in
     "");;
     rtfm) mux_title "${typed_cmd#man }" ;;
-    *) mux_title "${typed_cmd%% *}" ;;
+    *)
+      case $typed_cmd in
+        *=*) ;;
+        *) mux_title "${typed_cmd%% *}" ;;
+      esac ;;
   esac
 }
 
