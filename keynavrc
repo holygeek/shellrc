@@ -1,0 +1,4 @@
+### Drag examples
+# Start drag holding the left mouse button
+q drag 1
+w drag
