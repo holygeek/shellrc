@@ -17,6 +17,7 @@
 	drn = diff --relative --name-only
 	dt = difftool
 	forsvn = diff --name-only --relative
+	grepnogit = grep --no-index
 	head = log -1 --oneline --decorate
 	lc = log --reverse -p -b ORIG_HEAD..
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset \
