@@ -173,3 +173,7 @@ function goserve() {
 	echo "http://localhost:6060/"
 	godoc -http=:6060 -index -notes="BUG|TODO|FIXME"
 }
+
+function csearch() {
+  command csearch $@ | less
+}
