@@ -33,7 +33,8 @@ alias show='apt-cache show'
 alias simplePS='precmd(){};chpwd(){};RPROMPT= PS1="\$ "'
 alias ttk='tentakel'
 alias vgrep='git grep -Ovi'
-alias vl='git number -c vi'
+alias vl='git number -c vim'
+alias vi='vim'
 alias vsv='ge vi --servername vsv'
 alias zen="zstyle ':vcs_info:*' enable"
 
