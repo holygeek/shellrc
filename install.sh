@@ -4,9 +4,9 @@ ln -s `pwd`/keynavrc ~/.keynavrc
 
 elinks_conf=$HOME/.elinks/elinks.conf
 if [ -w $elinks_conf ]; then
-  if ! grep -q "source \".*.shell/elinks\.conf\"" $elinks_conf; then
-    echo "source \"$HOME/.shell/elinks.conf\"" >> $elinks_conf
+  if ! grep -q "include \".*.shell/elinks\.conf\"" $elinks_conf; then
+    echo "include \"$HOME/.shell/elinks.conf\"" >> $elinks_conf
   fi
 else
-    echo "source \"$HOME/.shell/elinks.conf\"" >> $elinks_conf
+    echo "include \"$HOME/.shell/elinks.conf\"" >> $elinks_conf
 fi
