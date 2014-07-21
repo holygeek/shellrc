@@ -14,8 +14,10 @@ alias gap='git number add -p'
 alias gca='git commit --amend'
 alias grc='git rebase --continue'
 alias gcv="GIT_EDITOR=\"vim -c 'normal gg/^diffdGgg:bot newP:set ft=diff buftype=nofile nospell:nohlsearch:wincmd k'\" git commit -v"
-alias gdc='git number diff --cached'
 alias gd='git number diff'
+alias gdw='git number diff --color-words="[A-Za-z0-9]"'
+alias gdc='git number diff --cached'
+alias gdcw='git number diff --cached --color-words="[A-Za-z0-9]"'
 alias ge='git number -c'
 alias gl='git list'
 alias gn='mgit -E number --column'
