@@ -46,7 +46,10 @@ if [ "x$use_vcs_info" = "xy" ]; then
       vcs_info
     fi
   }
-  HOST_COLOR='3'
+  HOST_COLOR=3
+  if [ "$BG" = white ]; then
+  HOST_COLOR=0
+  fi
   if [ -n "$SSH_TTY" ]; then
     HOST_COLOR=2
   fi
