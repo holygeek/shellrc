@@ -1,3 +1,7 @@
+# 256 color mode:
+# fg:  ESC[38;5;<fgcode>m
+# bg:  ESC[48;5;<bgcode>m
+
 if [ -z "$COLOR_DONE" ]; then
   color_escape() {
     echo "[$*m"
