@@ -5,7 +5,11 @@ if [ -z "$LESS_DONE" ]; then
   export LESS_TERMCAP_me=$(tput sgr0)
   export LESS_TERMCAP_so=$(tput setaf 0; tput setab 4) # black on blue, no bold (tput bold)
   export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+if [ "$BG" = "white" ]; then
+  export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 0) # gray
+else
   export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7) # white
+fi
   export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
   export LESS_TERMCAP_mr=$(tput rev)
   export LESS_TERMCAP_mh=$(tput dim)
