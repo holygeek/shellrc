@@ -31,7 +31,7 @@
 	mirror = push --tags -f mirror master
 	suno = status -uno
 	ssu = status --short -uno
-	ctags = !.git/hooks/ctags
+	ctags = !`git rev-parse --git-dir`/hooks/ctags
 [merge]
 	tool = vimdiff
 [push]
