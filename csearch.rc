@@ -1,0 +1,43 @@
+findfile_usage() {
+    echo "Usage: findfile [-i] <filename pattern>
+    -i   Interactive mode
+    -h   Show this help message"
+}
+
+findfile() {
+  interactive=
+  while getopts i opt
+  do
+    case "$opt" in
+      i) interactive=t;;
+      h) usage ; exit;;
+      \?) echo Unknown option ; exit;;
+    esac
+  done
+  shift $(($OPTIND -1))
+
+  if [ -n "$interactive" ]; then
+    csearch -f "$1" -l . | cat -n
+    echo "Action: Go to[d]ir, [e]dit"
+    #read -p "Action ([de][0-9]): " input
+    read "input?Action ([de][0-9]): "
+    input=$(echo $input|tr -d ' ')
+    action=${input%%[0-9]}
+    n=${input##[a-z]}
+    file=$(csearch -f "$1" -l . | sed -n "${n}p")
+    case "$action" in
+      d)
+        echo cd $(dirname "$file")
+        cd $(dirname "$file")
+        ;;
+      e)
+        echo vi "$file"
+        vi "$file"
+        ;;
+      *) echo "Don't know what to do for \"$input\""
+        ;;
+    esac
+  else
+    csearch -f "$1" -l .
+  fi
+}
