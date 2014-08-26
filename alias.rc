@@ -63,6 +63,7 @@ which _vim >/dev/null && compdef vi=vim
 compdef vih=vimhelp
 compdef gn=git
 compdef ttk=tentakel
+# compdef _git co=git-checkout
 
 function get_cds_candidates() {
   # cat /dev/shm/*.cwd|grep -v "^$HOME$"|sed -e "s:$HOME/::"|sort -u|grep ${1:-.}
