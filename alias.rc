@@ -182,3 +182,11 @@ function goserve() {
 function csearch() {
   command csearch $@ | less
 }
+
+function gncd() {
+  if [ -z "$1" ]; then
+    echo gncd: No arg given
+    return 1
+  fi
+  cdf `git list $1`
+}
