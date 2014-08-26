@@ -1,3 +1,7 @@
+function csearch() {
+  command csearch $@ | less
+}
+
 findfile_usage() {
     echo "Usage: findfile [-i] <filename pattern>
     -i   Interactive mode

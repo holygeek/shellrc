@@ -180,10 +180,6 @@ function goserve() {
 	godoc -http=:6060 -index -notes="BUG|TODO|FIXME"
 }
 
-function csearch() {
-  command csearch $@ | less
-}
-
 function gncd() {
   if [ -z "$1" ]; then
     echo gncd: No arg given
