@@ -1,6 +1,4 @@
-nanostamp() {
-  date +%s.%N
-}
+zmodload zsh/datetime
 
 nanodiff() {
   start=$1
@@ -45,11 +43,11 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle :compinstall filename '/home/nazri/.zshrc'
 
 autoload -Uz compinit
-[ -z "$BENCHTIME_DONE" ] && start=`nanostamp`
+[ -z "$BENCHTIME_DONE" ] && start=$EPOCHREALTIME
 compinit
 # End of lines added by compinstall
 if [ -z "$BENCHTIME_DONE" ]; then
-  end=`nanostamp`
+  end=$EPOCHREALTIME
   duration=`nanodiff $start $end`
   echo " $(print_with_thousands_grouping $duration) compinit"
 fi
@@ -57,10 +55,10 @@ fi
 #autoload zmv
 
 source $HOME/.shell/main.sh
-[ -z "$BENCHTIME_DONE" ] && start=`nanostamp`
+[ -z "$BENCHTIME_DONE" ] && start=$EPOCHREALTIME
 compinit
 if [ -z "$BENCHTIME_DONE" ]; then
-  end=`nanostamp`
+  end=$EPOCHREALTIME
   duration=`nanodiff $start $end`
   echo " $(print_with_thousands_grouping $duration) compinit 2nd"
 fi
