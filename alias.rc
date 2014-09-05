@@ -44,6 +44,7 @@ alias wl='vi -o ~/work.{todo,doing,done}'
 alias zen="zstyle ':vcs_info:*' enable"
 
 alias -g CD='colordiff|less'
+alias -g TSTAMP='while read line; do echo "[$EPOCHREALTIME] $line";done'
 alias -g ENV="|tr '\000' '\n'"
 alias -g IP="|grep --color=auto -E '^|([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)+'"
 alias -g NO='--name-only'
