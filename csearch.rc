@@ -1,24 +1,50 @@
+LF='
+'
 function csearch() {
   command csearch $@ | less
 }
 
 findfile_usage() {
     echo "Usage: findfile [-i] <filename pattern>
-    -i   Interactive mode
-    -h   Show this help message"
+    -d   Change to directory of the matching file
+    -e   Open the matching file in \$EDITOR
+    -h   Show this help message
+    -i   Interactive mode"
 }
 
 findfile() {
   interactive=
-  while getopts i opt
+  oneshot=
+  while getopts ideh opt
   do
     case "$opt" in
+      d) oneshot=d;;
+      e) oneshot=e;;
+      h) usage ; return 1;;
       i) interactive=t;;
-      h) usage ; exit;;
-      \?) echo Unknown option ; exit;;
+      \?) echo Unknown option ; return 1;;
     esac
   done
   shift $(($OPTIND -1))
+
+  if [ -n "$oneshot" ]; then
+    file=$(csearch -f "$1" -l .)
+    case "$file" in
+      *$LF*)
+        interactive=t
+        ;;
+      *)
+        case "$oneshot" in
+          d)
+            cd $(dirname $file)
+            return 0
+            ;;
+          e)
+            $EDITOR $file
+            ;;
+        esac
+    esac
+  fi
 
   if [ -n "$interactive" ]; then
     csearch -f "$1" -l . | cat -n
@@ -35,8 +61,8 @@ findfile() {
         cd $(dirname "$file")
         ;;
       e)
-        echo vi "$file"
-        vi "$file"
+        echo $EDITOR "$file"
+        $EDITOR "$file"
         ;;
       *) echo "Don't know what to do for \"$input\""
         ;;
