@@ -68,8 +68,8 @@
 [include]
 	path = ~/work.aux/gitconfig
 	path = ~/.shell/gitconfig.local
-[init]
-	templatedir = ~/.vim/git_template
+#[init]
+	#templatedir = ~/.vim/git_template
 [column]
 	ui = auto
 [branch "master"]
