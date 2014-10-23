@@ -42,6 +42,7 @@ alias vl='git number -c vim'
 alias vi='vim'
 alias vsv='ge vi --servername vsv'
 alias wl='vi -o ~/work.{todo,doing,done}'
+alias pl='vi -o ~/mine.{todo,doing,done}'
 alias zen="zstyle ':vcs_info:*' enable"
 
 alias -g CD='colordiff|less'
