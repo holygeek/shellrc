@@ -190,7 +190,7 @@ function gncd() {
     echo gncd: No arg given
     return 1
   fi
-  cdf `git list $1`
+  cd `git list $1`
 }
 
 function show() {
