@@ -55,6 +55,7 @@ alias -g 'P.'='`p -.`'
 alias -g V='`vs`'
 
 for cmd in \
+        search \
 	find \
         dpkg \
         vif \
