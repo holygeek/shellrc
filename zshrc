@@ -1,3 +1,4 @@
+BENCHTIME_DONE=t
 zmodload zsh/datetime
 
 nanodiff() {
