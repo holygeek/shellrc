@@ -35,7 +35,6 @@ alias mgrep='mgit -cp grep'
 #alias ls='ls -F'
 alias mv='mv -i'
 alias rm='rm -i'
-alias show='apt-cache show'
 alias simplePS='precmd(){};chpwd(){};RPROMPT= PS1="\$ "'
 alias ttk='tentakel'
 alias vgrep='git grep -Ovi'
@@ -190,4 +189,11 @@ function gncd() {
     return 1
   fi
   cdf `git list $1`
+}
+
+function show() {
+  apt-cache show $*|
+    GREP_COLORS="mt=32" grep --color=always \
+      -E '^|^Version: .*|^Homepage: .*|^Description.*|^ .*'|
+    less -R
 }
