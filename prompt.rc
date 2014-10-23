@@ -61,7 +61,7 @@ else
   reset="[0m"
   blue="[00;38;5;33m"
 
-  git_prompt=$HOME/src/git/contrib/completion/git-prompt.sh
+  git_prompt=$HOME/code/git/contrib/completion/git-prompt.sh
   if [ -f $git_prompt ]; then
     source $git_prompt
     GIT_PS1_SHOWDIRTYSTATE=true
