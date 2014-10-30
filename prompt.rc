@@ -1,8 +1,9 @@
 # vim: set ts=2 sts=2 sw=2 expandtab
 setopt prompt_subst
+darkgray="%{[38;5;243m%}"
 NJOB='%(1j.(%j) .)'
 PS1_END="
-%{$red%}%(?..!%?! )%{$reset%}%(!.#.\$) "
+%{$red%}%(?..!%?! )$darkgray%(!.#.\$)%{$reset%} "
 PS1_HOST='%m:'
 RPROMPT_HOST='%m'
 if [ -z "$SSH_TTY" ]; then
@@ -46,14 +47,17 @@ if [ "x$use_vcs_info" = "xy" ]; then
       vcs_info
     fi
   }
-  HOST_COLOR=3
-  if [ "$BG" = white ]; then
-  HOST_COLOR=0
-  fi
-  if [ -n "$SSH_TTY" ]; then
-    HOST_COLOR=2
-  fi
-  PS1='%F{$HOST_COLOR}$NJOB$PS1_HOST%~%F{2}${vcs_info_msg_0_}%f$PS1_END'
+  #HOST_COLOR_NR=3
+  #if [ "$BG" = white ]; then
+  #HOST_COLOR_NR=0
+  #fi
+  #if [ -n "$SSH_TTY" ]; then
+  #  HOST_COLOR_NR=2
+  #fi
+  #HOST_COLOR='%F{$HOST_COLOR_NR}'
+  HOST_COLOR=$darkgray
+
+  PS1=$HOST_COLOR'$NJOB$PS1_HOST%~%F{2}${vcs_info_msg_0_}%f$PS1_END'
   RPROMPT="%F{3}\$RPROMPT_HOST%f"
 else
   green="[32m"
