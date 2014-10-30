@@ -1,0 +1,40 @@
+# offlineimap v6.5.6@7770b5ff73737d1269eb1ba7554b8d3486c7f5ec
+[general]
+ui = ttyui
+accounts = gmail
+pythonfile = ~/.vim/bin/pass.py
+#fsync = False
+
+[Account gmail]
+localrepository = gmaillocal
+remoterepository = gmailremote
+status_backend = sqlite
+
+[Repository gmaillocal]
+type = Maildir
+localfolders = ~/.gmail
+sep = /
+nametrans = lambda folder: {
+		'coreutils': '00/coreutils',
+		'git': '00/git',
+		'vim-dev': '00/vim-dev',
+	}.get(folder, folder)
+
+[Repository gmailremote]
+maxconnections = 1
+type = Gmail
+remoteuser = ayiehere
+remotepasseval = get_pass("google/offlineimap")
+realdelete = no
+ssl = yes
+nametrans = lambda folder: {
+		'00/coreutils': 'coreutils',
+		'00/git': 'git',
+		'00/vim-dev': 'vim-dev',
+	}.get(folder, folder)
+folderfilter = lambda foldername: foldername in [
+		'00/coreutils',
+		'00/git',
+		'00/vim-dev',
+	]
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
