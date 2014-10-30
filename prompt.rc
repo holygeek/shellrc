@@ -11,7 +11,6 @@ if [ -z "$SSH_TTY" ]; then
   RPROMPT_HOST=
 fi
 
-
 autoload -Uz vcs_info
 use_vcs_info=
 if vcs_info >/dev/null 2>&1; then
