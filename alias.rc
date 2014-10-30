@@ -33,6 +33,7 @@ alias ls='ls --color=auto'
 alias mgrep='mgit -cp grep'
 # When network is down use this:
 #alias ls='ls -F'
+alias mutt='TERM=screen-256color mutt'
 alias mv='mv -i'
 alias rm='rm -i'
 alias simplePS='precmd(){};chpwd(){};RPROMPT= PS1="\$ "'
