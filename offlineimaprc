@@ -17,7 +17,9 @@ sep = /
 nametrans = lambda folder: {
 		'coreutils': '00/coreutils',
 		'git': '00/git',
-		'vim-dev': '00/vim-dev',
+		'vim-dev': '00/vim/vim-dev',
+		'mutt-devel': '01/mutt-devel',
+		'mutt-users': '01/mutt-users',
 	}.get(folder, folder)
 
 [Repository gmailremote]
@@ -30,11 +32,15 @@ ssl = yes
 nametrans = lambda folder: {
 		'00/coreutils': 'coreutils',
 		'00/git': 'git',
-		'00/vim-dev': 'vim-dev',
+		'00/vim/vim-dev': 'vim-dev',
+		'01/mutt-devel': 'mutt-devel',
+		'01/mutt-users': 'mutt-users',
 	}.get(folder, folder)
 folderfilter = lambda foldername: foldername in [
 		'00/coreutils',
 		'00/git',
-		'00/vim-dev',
+		'00/vim/vim-dev',
+		'01/mutt-devel',
+		'01/mutt-users',
 	]
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
