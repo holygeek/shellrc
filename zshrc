@@ -26,6 +26,47 @@ setopt appendhistory autocd notify
 unsetopt beep
 bindkey -v
 bindkey -M viins '' history-incremental-search-backward
+# From readline manpage, with C- replaced with ^
+# Commented out entries are either "incompatible" with existing bindkeys
+# defined elsewhere or not deemed necessary yet
+#bindkey -M viins '^@'  set-mark
+bindkey -M viins '^A'  beginning-of-line
+bindkey -M viins '^B'  backward-char
+#bindkey -M viins '^D'  delete-char
+function exit-or-dash() {
+  if [ -n "$BUFFER" ]; then
+    BUFFER=${BUFFER}-
+    CURSOR=$#BUFFER
+  else
+    exit
+  fi
+}
+zle -N exit-or-dash
+bindkey -M viins '^D'  exit-or-dash
+bindkey -M viins '^E'  end-of-line
+# bindkey -M viins '^F'  forward-char
+# bindkey -M viins '^G'  abort
+bindkey -M viins '^G'  accept-line
+bindkey -M vicmd '^G'  accept-line
+bindkey -M viins '^H'  backward-delete-char
+# bindkey -M viins '^I'  complete
+#bindkey -M viins '^J'  accept-line
+bindkey -M viins '^K'  kill-line
+bindkey -M viins '^L'  clear-screen
+bindkey -M viins '^M'  accept-line
+bindkey -M viins '^N'  next-history
+bindkey -M viins '^P'  previous-history
+#bindkey -M viins '^Q'  quoted-insert
+# bindkey -M viins '^R'  reverse-search-history
+bindkey -M viins '^S'  forward-search-history
+#bindkey -M viins '^T'  transpose-chars
+bindkey -M viins '^U'  unix-line-discard
+#bindkey -M viins '^V'  quoted-insert
+#bindkey -M viins '^W'  unix-word-rubout
+#bindkey -M viins '^Y'  yank
+bindkey -M viins '^]'  character-search
+bindkey -M viins '^_'  undo
+
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 
