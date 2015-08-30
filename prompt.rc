@@ -130,7 +130,25 @@ preexec() {
     rtfm) mux_title "${typed_cmd#man }" ;;
     *)
       case $typed_cmd in
-        *=*) ;;
+        *=*)
+          for tok in $(echo $typed_cmd)
+          do
+            #echo >&2 "tok is $tok"
+            case "$tok" in
+              *=*)
+                continue
+                ;;
+              /*)
+                mux_title "$(basename $tok)"
+                break
+                ;;
+              *)
+                mux_title "$tok"
+                break
+                ;;
+            esac
+          done
+          ;;
         *) mux_title "${typed_cmd%% *}" ;;
       esac ;;
   esac
