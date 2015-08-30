@@ -1,7 +1,7 @@
 LF='
 '
 function csearch() {
-  command csearch $@ | less
+  command csearch $@ | command less
 }
 
 findfile_usage() {

@@ -20,8 +20,8 @@ alias gdb='gdb -q'
 alias gdc='git number diff --cached'
 alias gdcw='git number diff --cached --color-words="[A-Za-z0-9]"'
 alias ge='git number -c'
-alias gl='git log'
-alias gn='mgit -E number --column'
+alias gl='git number log'
+alias g='git number --column'
 alias gnl='git number --color=always|less'
 alias gns='git number --column -- --ignore-submodules'
 alias grep='grep --color=auto'
@@ -30,10 +30,11 @@ alias less='git number -c less'
 alias lrt='ls -lrt'
 alias lrtn='(printf "PERM LINKS OWNER GROUP SIZE MONTH DAY " ; printf "HH:MM/YEAR NAME SYMLINK\n" ; ls -lrt | sed 1d) | column -t'
 alias ls='ls --color=auto'
-alias mgrep='mgit -cp grep'
+#alias mgrep='mgit -cp grep'
 # When network is down use this:
 #alias ls='ls -F'
 alias mutt='TERM=screen-256color mutt'
+alias muttman='col -b </usr/local/share/doc/mutt/manual.txt|view -'
 alias mv='mv -i'
 alias rm='rm -i'
 alias s='ls'
@@ -41,7 +42,9 @@ alias simplePS='precmd(){};chpwd(){};RPROMPT= PS1="\$ "'
 alias ttk='tentakel'
 alias vgrep='git grep -Ovi'
 alias v='git number -c vim'
+alias vd='git number difftool'
 alias vi='vim'
+alias vq='vimquit'
 alias vsv='ge vi --servername vsv'
 alias wl='vi -o ~/work.{todo,doing,done}'
 alias pl='vi -o ~/mine.{todo,doing,done}'
@@ -115,6 +118,14 @@ function cdf() {
   cd `dirname $wanted_path`
 }
 
+function cdl() {
+  # cd to last saved directory for current session
+  ld=~/.lastdir.$TERM_NAME
+  if [ -f $ld ]; then
+    cd $(cat $ld)
+  fi
+}
+
 function cds() {
   new_dir=`get_cds_candidates $*|head -${2:-1}|tail -1`
   case $new_dir in
@@ -147,24 +158,24 @@ function u() {
 	cd $t
 }
 
-function go() {
-	if [ "$1" = "cd" ]; then
-		shift
-		cd $(command go list -f '{{.Dir}}' $@ || echo .)
-	elif [ "$1" = "doc" ]; then
-		shift
-		command godoc $@|less
-	else
-		command go $@
-	fi
-}
+#function go() {
+#	if [ "$1" = "cd" ]; then
+#		shift
+#		cd $(command go list -f '{{.Dir}}' $@ || echo .)
+#	elif [ "$1" = "doc" ]; then
+#		shift
+#		command godoc $@|less
+#	else
+#		command go $@
+#	fi
+#}
 
 # my godoc is broken :(
 #   $ ~/go/bin/godoc os.exec
 #   2013/11/15 09:27:37 readTemplate: open /home/nazri/go/lib/godoc/codewalk.html: no such file or directory
-#function godoc() {
-#	command godoc $@|less
-#}
+function godoc() {
+	command godoc $@|command less
+}
 
 function pickcolor() {
 	for theme in `highlight -w|grep -E '^[a-z]+$'`; do
