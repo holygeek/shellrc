@@ -30,6 +30,7 @@
 		cut -f 2- -d' '"
 	mirror = push --tags -f mirror master
 	suno = status -uno
+	stu = !git number -- -uno --ignore-submodules=untracked
 	ssu = status --short -uno
 	ctags = !`git rev-parse --git-dir`/hooks/ctags
 [merge]
