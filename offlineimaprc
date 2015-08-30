@@ -17,6 +17,8 @@ sep = /
 nametrans = lambda folder: {
 		'coreutils': '00/coreutils',
 		'git': '00/git',
+		'golang-dev': '00/go/golang-dev',
+		'go-nuts': '00/go/go-nuts',
 		'vim-dev': '00/vim/vim-dev',
 		'mutt-devel': '01/mutt-devel',
 		'mutt-users': '01/mutt-users',
@@ -32,6 +34,8 @@ ssl = yes
 nametrans = lambda folder: {
 		'00/coreutils': 'coreutils',
 		'00/git': 'git',
+		'00/go/golang-dev': 'golang-dev',
+		'00/go/go-nuts': 'go-nuts',
 		'00/vim/vim-dev': 'vim-dev',
 		'01/mutt-devel': 'mutt-devel',
 		'01/mutt-users': 'mutt-users',
@@ -39,6 +43,8 @@ nametrans = lambda folder: {
 folderfilter = lambda foldername: foldername in [
 		'00/coreutils',
 		'00/git',
+		'00/go/golang-dev',
+		'00/go/go-nuts',
 		'00/vim/vim-dev',
 		'01/mutt-devel',
 		'01/mutt-users',
