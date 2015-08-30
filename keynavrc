@@ -3,7 +3,7 @@
 #q drag 1
 #w drag
 ctrl+semicolon start, focused-grid auto 1366x760+0+0
-ctrl+j move-down 3
-ctrl+k move-up 3
-ctrl+h move-left 3
-ctrl+l move-right 3
+j move-down 3
+k move-up 3
+h move-left 3
+l move-right 3
