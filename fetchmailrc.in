@@ -1,0 +1,4 @@
+set logfile /home/nazri/.fetchmail.log
+poll @MAIL_SERVER@ protocol imap username "@USER@" password "@PASS@"
+
+mda "/usr/bin/procmail -d %T"
