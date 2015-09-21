@@ -7,8 +7,10 @@
 [alias]
 	ack = grep --heading -n --break
 	bc = branch-check
+	bvv = !LESS=SR git branch -vv
 	n = number
 	k = log --graph --decorate --oneline --abbrev-commit
+	ka = log --graph --decorate --oneline --abbrev-commit --pretty='format:%C(auto)%h%d %s (%cr) %C(blue)%aN%Creset'
 	co = checkout
 	cbranch = "!git branch | grep '\\*'"
 	cbr = "!git branch | grep '\\*'"
