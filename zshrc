@@ -66,6 +66,8 @@ bindkey -M viins '^U'  unix-line-discard
 #bindkey -M viins '^Y'  yank
 bindkey -M viins '^]'  character-search
 bindkey -M viins '^_'  undo
+bindkey -M vicmd vi-set-mark m
+bindkey -M vicmd \' vi-goto-mark
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
