@@ -64,7 +64,8 @@ for cmd in \
 	find \
         dpkg \
         vif \
-        sql
+        sql \
+        youtube-dl
 do
 	alias $cmd="noglob $cmd"
 done
