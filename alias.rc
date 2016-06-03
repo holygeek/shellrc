@@ -200,9 +200,9 @@ function goserve() {
 	godoc -http=:6060 -index -notes="BUG|TODO|FIXME"
 }
 
-function gncd() {
+function cdn() {
   if [ -z "$1" ]; then
-    echo gncd: No arg given
+    echo >&2 cdn: need arg
     return 1
   fi
   cd `git list $1`
