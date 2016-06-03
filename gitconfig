@@ -63,7 +63,9 @@
 [diff "ferite"]
 	xfuncname = "\\s*function\\s\\s*[A-Za-z].*" # Need "*.fe diff=ferite" added to .config/git/attributes:
 [diff "osm"]
-	xfuncname = "^\\s*(class\\s.*)"
+	xfuncname = "^\\s*((class|query|event)\\s.*)"
+[diff "module2nativefe"]
+	xfuncname = ".*\\[\\] = '[^(]*\\(.*\\.expandTemplate.*flatName\\(\\)|EVENT_HANDLER"
 [difftool]
 	prompt = no
 [log]
