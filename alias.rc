@@ -215,3 +215,33 @@ function show() {
       -E '^|^Version: .*|^Homepage: .*|^Description.*|^ .*'|
     less -R
 }
+
+function setup_go() {
+    #PATH=$GOROOT/bin:$PATH
+    export GOROOT=${1?need GOROOT arg}
+    function godoc() {
+      $GOROOT/bin/godoc "$@"|command less
+    }
+    function go() {
+      $GOROOT/bin/go "$@"
+    }
+    function gofmt() {
+      $GOROOT/bin/gofmt "$@"
+    }
+}
+
+function go1.4() {
+    setup_go $HOME/go1.4
+    #export GOROOT=$HOME/go1.4
+    #PATH=$GOROOT/bin:$PATH
+}
+
+function go1.5() {
+    setup_go $HOME/go1.5
+    #export GOROOT=$HOME/go1.5
+    #PATH=$GOROOT/bin:$PATH
+}
+
+function go1.6() {
+    setup_go $HOME/go1.6.2
+}
