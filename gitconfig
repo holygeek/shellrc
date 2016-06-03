@@ -46,6 +46,7 @@
 [color "decorate"]
 	tag = reverse bold yellow
 [color "grep"]
+	function = magenta
 	separator = cyan
 	filename = blue
 	linenumber = yellow
