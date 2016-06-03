@@ -59,6 +59,7 @@
 	autosquash = true
 [diff]
 	tool = vimdiff
+	noprefix = true
 [diff "ferite"]
 	xfuncname = "\\s*function\\s\\s*[A-Za-z].*" # Need "*.fe diff=ferite" added to .config/git/attributes:
 [diff "osm"]
