@@ -74,6 +74,9 @@
 [pager]
 	whowhat = true
 	branch = yes
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
 [include]
 	path = ~/work.aux/gitconfig
 	path = ~/.shell/gitconfig.local
@@ -83,3 +86,7 @@
 	ui = auto
 [branch "master"]
 	rebase = true
+[stash]
+	showPatch = true
+[interactive]
+	diffFilter = diff-highlight
