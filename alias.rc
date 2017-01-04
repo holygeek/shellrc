@@ -6,6 +6,7 @@ alias cdreal='cd $(readlink -e `pwd`)'
 alias co='git number checkout'
 alias add2git='add2git --via cpanm'
 alias cp='cp -i'
+alias currwin="xprop -root _NET_ACTIVE_WINDOW|awk '{print \$5}'"
 alias d='dict'
 alias deb='sudo apt-get'
 alias ds='du -sh * | sort -h'
