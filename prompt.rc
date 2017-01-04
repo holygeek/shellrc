@@ -45,6 +45,10 @@ if [ "x$use_vcs_info" = "xy" ]; then
     else
       vcs_info
     fi
+    gopath_info=
+    if [ "$GOPATH" != "$HOME/gocode" ]; then
+      gopath_info=" ${darkgray}GOPATH=$GOPATH%f"
+    fi
   }
   #HOST_COLOR_NR=3
   #if [ "$BG" = white ]; then
@@ -56,7 +60,7 @@ if [ "x$use_vcs_info" = "xy" ]; then
   #HOST_COLOR='%F{$HOST_COLOR_NR}'
   HOST_COLOR=$darkgray
 
-  PS1=$HOST_COLOR'$NJOB$PS1_HOST%~%F{2}${vcs_info_msg_0_}%f$PS1_END'
+  PS1=$HOST_COLOR'$NJOB$PS1_HOST%~%F{2}${vcs_info_msg_0_}%f${gopath_info}$PS1_END'
   RPROMPT="%F{3}\$RPROMPT_HOST%f"
 else
   green="[32m"
