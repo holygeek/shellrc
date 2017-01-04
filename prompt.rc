@@ -154,6 +154,15 @@ preexec() {
             esac
           done
           ;;
+        fg)
+          :
+          ;;
+        ssh\ *)
+          mux_title "${typed_cmd#ssh }"
+          ;;
+        ssh-direct\ *)
+          mux_title "${typed_cmd#ssh-direct }"
+          ;;
         *) mux_title "${typed_cmd%% *}" ;;
       esac ;;
   esac
