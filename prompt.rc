@@ -103,12 +103,13 @@ TRAPINT() {
 
 mux_title_curr_dir() {
   test -z "$TERM_NAME" && return
-  mux title ${(D)PWD#$HOME/}
+  mux_title ${(D)PWD#$HOME/}
 }
 
 mux_title() {
   test -z "$TERM_NAME" && return
-  mux title "'$*'"
+  #mux title "'$*'"
+  tmux rename-window "$title";
 }
 
 test -n "$SSH_TTY" &&
