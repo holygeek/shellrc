@@ -46,7 +46,7 @@ if [ "x$use_vcs_info" = "xy" ]; then
       vcs_info
     fi
     gopath_info=
-    if [ "$GOPATH" != "$HOME/gocode" ]; then
+    if [ "$GOPATH" != "$HOME/go" ]; then
       gopath_info=" ${darkgray}GOPATH=$GOPATH%f"
     fi
   }

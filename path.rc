@@ -21,7 +21,8 @@ dedup_path() {
 if [ -n "$GOPATH" ]; then
   prepend_path $GOPATH/bin
 fi
-prepend_path $HOME/go/bin
+# ~/Go is symlink to $GOROOT in use
+prepend_path $HOME/Go/bin
 prepend_path $HOME/bin
 if [ -n "$ZSH_VERSION" ]; then
   dedup_path
