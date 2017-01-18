@@ -28,6 +28,7 @@ if [ -n "$ZSH_VERSION" ]; then
   dedup_path
 fi
 test -d ~/.$HOST.local/bin && PATH=~/.$HOST.local/bin:$PATH
+test -d ~/.cargo && PATH=~/.cargo/bin:$PATH
 
 export PATH
 
