@@ -17,7 +17,6 @@ alias grc='git rebase --continue'
 alias gcv="GIT_EDITOR=\"vim -c 'normal gg/^diffdGgg:bot newP:set ft=diff buftype=nofile nospell:nohlsearch:wincmd k'\" git commit -v"
 alias gd='git number diff'
 alias gdh='git diff HEAD^ HEAD'
-alias gdu='git diff @{u} HEAD'
 alias gdw='git number diff --color-words="[A-Za-z0-9]"'
 alias gdb='gdb -q'
 alias gdc='git number diff --cached'
@@ -25,6 +24,7 @@ alias gdcw='git number diff --cached --color-words="[A-Za-z0-9]"'
 alias ge='git number -c'
 alias gl='git number log'
 alias g='git number --column'
+alias gn='git number'
 alias gnl='git number --color=always|less'
 alias gns='git number --column -- --ignore-submodules'
 alias grep='grep --color=auto'
@@ -234,7 +234,7 @@ function setup_go() {
 }
 
 function go1.4() {
-    setup_go $HOME/go1.4
+    setup_go $HOME/go1.4.3
     #export GOROOT=$HOME/go1.4
     #PATH=$GOROOT/bin:$PATH
 }
@@ -247,4 +247,8 @@ function go1.5() {
 
 function go1.6() {
     setup_go $HOME/go1.6.2
+}
+
+function go1.7() {
+    setup_go $HOME/go1.7
 }
