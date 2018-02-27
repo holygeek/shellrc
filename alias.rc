@@ -24,10 +24,13 @@ alias gdcw='git number diff --cached --color-words="[A-Za-z0-9]"'
 alias ge='git number -c'
 alias gl='git number log'
 alias g='git number --column'
+alias gdiff='git diff --no-index'
 alias gn='git number'
 alias gnl='git number --color=always|less'
 alias gns='git number --column -- --ignore-submodules'
 alias grep='grep --color=auto'
+alias ggrep='git grep --no-index'
+alias gu='git number --column -uno'
 alias help='run-help'
 alias ignore='git number -c ignore'
 alias irssi='TERM=screen-256color irssi'
@@ -80,6 +83,12 @@ compdef vih=vimhelp
 compdef gn=git
 compdef ttk=tentakel
 # compdef _git co=git-checkout
+
+function chromepdf() {
+  url=${1?need url}
+  out=${2?need output.pdf}
+  chrome --headless --disable-gpu --print-to-pdf="$out" "$url"
+}
 
 function get_cds_candidates() {
   # cat /dev/shm/*.cwd|grep -v "^$HOME$"|sed -e "s:$HOME/::"|sort -u|grep ${1:-.}
@@ -210,6 +219,14 @@ function cdn() {
     return 1
   fi
   cd `git list $1`
+}
+
+function gocd() {
+  if [ -z "$1" ]; then
+    cd "$1"
+  else
+    cd $(go list -f {{.Dir}} "$1")
+  fi
 }
 
 function show() {
