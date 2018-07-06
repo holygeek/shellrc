@@ -60,6 +60,7 @@
 [diff]
 	tool = vimdiff
 	noprefix = true
+	colorMoved = default
 [diff "ferite"]
 	xfuncname = "\\s*function\\s\\s*[A-Za-z].*" # Need "*.fe diff=ferite" added to .config/git/attributes:
 [diff "osm"]
@@ -70,7 +71,7 @@
 	prompt = no
 [log]
 	decorate = short
-	date = iso
+	date = iso-local
 [pager]
 	whowhat = true
 	branch = yes
@@ -90,3 +91,5 @@
 	showPatch = true
 [interactive]
 	diffFilter = diff-highlight
+[submodule]
+	fetchJob = 0
