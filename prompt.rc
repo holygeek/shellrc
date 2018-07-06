@@ -107,9 +107,16 @@ mux_title_curr_dir() {
 }
 
 mux_title() {
+  local curr_title
   test -z "$TERM_NAME" && return
   #mux title "'$*'"
-  tmux rename-window "$title";
+  curr_title=`tmux display-message -p '#W'`
+  case "$curr_title" in
+    "*"*)
+      # Do not overwrite title with star prefix
+      return
+  esac
+  tmux rename-window -- "$1";
 }
 
 test -n "$SSH_TTY" &&
