@@ -113,7 +113,7 @@ function cdf() {
   then
     wanted_path=$1
   else
-    files=( `mgit -p ls-files -- "*/$1*"` )
+    files=( `git -p ls-files -- "*/$1*"` )
     if [ $#files -eq 1 ]; then
       wanted_path=${files[1]}
     elif [ $#files -gt 1 ]; then
