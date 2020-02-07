@@ -1,3 +1,11 @@
+mach=`uname -s`
+islinux() {
+	test "$mach" = Linux
+}
+ismacos() {
+	test "$mach" = Darwin
+}
+
 alias ..='cd ../..'
 alias ...='cd ../../..'
 alias ....='cd ../../../..'
@@ -40,9 +48,11 @@ alias help='run-help'
 alias ignore='git number -c ignore'
 alias irssi='TERM=screen-256color irssi'
 alias lr='ls -rt'
-alias lrt='ls -lrt --time-style=long-iso'
+islinux && alias lrt='ls -lrt --time-style=long-iso'
+ismacos && alias lrt='ls -lrt'
 alias lrtn='(printf "PERM LINKS OWNER GROUP SIZE MONTH DAY " ; printf "HH:MM/YEAR NAME SYMLINK\n" ; ls -lrt | sed 1d) | column -t'
-alias ls='ls --color=auto'
+islinux && alias ls='ls --color=auto'
+ismacos && alias ls='ls -G'
 #alias mgrep='mgit -cp grep'
 # When network is down use this:
 #alias ls='ls -F'
