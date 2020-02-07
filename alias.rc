@@ -221,7 +221,12 @@ function cdn() {
     echo >&2 cdn: need arg
     return 1
   fi
-  cd `git list $1`
+  d=$(git list $1)
+  if [ -d "$d" ]; then
+    cd "$d"
+  else
+    cd "$(dirname "$d")"
+  fi
 }
 
 function gocd() {
