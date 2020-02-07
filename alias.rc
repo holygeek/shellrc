@@ -6,13 +6,17 @@ alias cdreal='cd $(readlink -e `pwd`)'
 alias co='git number checkout'
 alias add2git='add2git --via cpanm'
 alias cp='cp -i'
+alias csearch='csearch -n'
 alias currwin="xprop -root _NET_ACTIVE_WINDOW|awk '{print \$5}'"
 alias d='dict'
 alias deb='sudo apt-get'
 alias ds='du -sh * | sort -h'
+alias fdir='find . -type d -name'
+alias fname='find . -type f -name'
 alias ga='git number add'
 alias gap='git number add -p'
 alias gca='git commit --amend'
+alias gdu='git diff ..@{u}'
 alias grc='git rebase --continue'
 alias gcv="GIT_EDITOR=\"vim -c 'normal gg/^diffdGgg:bot newP:set ft=diff buftype=nofile nospell:nohlsearch:wincmd k'\" git commit -v"
 alias gd='git number diff'
@@ -30,6 +34,7 @@ alias gnl='git number --color=always|less'
 alias gns='git number --column -- --ignore-submodules'
 alias grep='grep --color=auto'
 alias ggrep='git grep --no-index'
+alias gsl='git shortlog'
 alias gu='git number --column -uno'
 alias help='run-help'
 alias ignore='git number -c ignore'
