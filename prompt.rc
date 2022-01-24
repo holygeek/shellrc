@@ -60,7 +60,7 @@ if [ "x$use_vcs_info" = "xy" ]; then
   #HOST_COLOR='%F{$HOST_COLOR_NR}'
   HOST_COLOR=$darkgray
 
-  PS1=$HOST_COLOR'$NJOB$PS1_HOST%~%F{2}${vcs_info_msg_0_}%f${gopath_info}$PS1_END'
+  PS1=$HOST_COLOR'$NJOB$PS1_HOST%~%F{2}${vcs_info_msg_0_}%f${gopath_info} $HOST_COLOR%D{%H:%M:%S}$PS1_END'
   RPROMPT="%F{3}\$RPROMPT_HOST%f"
 else
   green="[32m"
