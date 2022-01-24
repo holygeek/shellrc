@@ -2,11 +2,17 @@
 export TERM=xterm-256color
 export HISTFILE=~/.histfile
 stty -ixon
-tmpdir=/dev/shm
+uname=$(uname)
+if [ "$uname" = 'Linux' ]; then
+	tmpdir=/dev/shm
+fi
+
 if [ -n "$TERM_NAME" ]; then
-  winidfile=$tmpdir/term.$TERM_NAME[1].winid
-  if [ ! -f $winidfile ]; then
-    echo $WINDOWID > $winidfile
+  if [ "$uname" = 'Linux' ]; then
+    winidfile=$tmpdir/term.$TERM_NAME[1].winid
+    if [ ! -f $winidfile ]; then
+      echo $WINDOWID > $winidfile
+    fi
   fi
   export HISTFILE=~/.histfile.$TERM_NAME
 fi
