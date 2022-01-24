@@ -16,7 +16,7 @@ print_with_thousands_grouping() {
    /usr/bin/printf "%'13d" $1
 }
 
-FPATH=$FPATH:~/.shell/completion
+FPATH=~/.shell/completion:$FPATH
 
 # Lines configured by zsh-newuser-install
 HISTSIZE=10000
