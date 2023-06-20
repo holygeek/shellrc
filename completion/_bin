@@ -1,6 +1,6 @@
 #compdef bin
 local cmd
-cmd='ls ~/bin'
+cmd='ls ~/bin ~/dev/bin'
 test -d ~/wmgr && cmd="$cmd ~/wmgr"
 
 compadd -X 'Home brew scripts:' -- $(eval $cmd)
