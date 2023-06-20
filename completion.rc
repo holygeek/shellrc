@@ -48,3 +48,11 @@ compe() {
 #}
 #zle -C git-ls-files-matcher expand-or-complete GitLsFilesMatcher
 #bindkey '' git-ls-files-matcher
+
+# "vi" ignores mock_*.go and *_test.go
+#(Tue Oct 20 16:13:22 +08 2020)
+zstyle ':completion:*:*:vi:*' file-patterns '^(mock_*.go|*_test.go):ignored' '*:all-files'
+
+# https://www.reddit.com/r/zsh/comments/efi857/use_fzf_as_zshs_completion_selection_menu/
+# allow searching completion candidates
+#zstyle ':completion:*:*:*:default' menu yes select search
