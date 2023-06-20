@@ -1,4 +1,11 @@
 #compdef vif cdf
 
-paths=( $( git -p ls-files | grep -i ".*/$PREFIX" ) )
-compadd -d paths -o -- $paths:t
+paths=( $( git -P ls-files | grep -i ".*/${PREFIX}" ) )
+#echo >&2 ""
+#for i in $paths; do
+#echo >&2 "$i"
+#done
+# compadd -d paths -o -- $paths:t # This somehow doesn't work anymore after upgrading to Monterey 12.6?
+# Either of the following works:
+compadd -d paths -o match -- $paths:t
+#compadd -d paths $paths:t
