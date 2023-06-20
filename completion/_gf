@@ -1,0 +1,17 @@
+#compdef gf
+
+local files
+
+case "$BUFFER" in
+	'gf -a'*) # api only
+		files=($(pb -l))
+		if [ -n "${files[1]}" ]; then
+			compadd $(
+				/opt/homebrew/bin/ggrep -o '^  *rpc  *[^(]*' ${files[@]}|sed -e 's/.*rpc  *//'
+			)
+		fi
+		;;
+	*)
+		compadd $(funcs)
+		;;
+esac
