@@ -19,8 +19,8 @@ alias currwin="xprop -root _NET_ACTIVE_WINDOW|awk '{print \$5}'"
 alias d='dict'
 alias deb='sudo apt-get'
 alias ds='du -sh * | sort -h'
-alias fdir='find . -type d -name'
-alias fname='find . -type f -name'
+alias fdir='noglob find . -type d -name'
+alias fname='noglob find . -type f -name'
 alias ga='git number add'
 alias gap='git number add -p'
 alias gca='git commit --amend'
@@ -41,30 +41,31 @@ alias gn='git number'
 alias gnl='git number --color=always|less'
 alias gns='git number --column -- --ignore-submodules'
 alias grep='grep --color=auto'
-alias ggrep='git grep --no-index'
+#alias ggrep='git grep --no-index' # conflicts with homebrew's gnu grep 'ggrep'
 alias gsl='git shortlog'
 alias gu='git number --column -uno'
 alias help='run-help'
 alias ignore='git number -c ignore'
 alias irssi='TERM=screen-256color irssi'
 alias ll='ls -l'
-alias lr='ls -rt'
+alias lr='ls -rt1'
 alias lrd='ls -1 -rtd */'
-islinux && alias lrt='ls -lrt --time-style=long-iso'
-ismacos && alias lrt='ls -lrt'
+alias ls='ls --literal --color=auto -F'
+alias lrt='ls -lrt --time-style=long-iso'
 alias lrtn='(printf "PERM LINKS OWNER GROUP SIZE MONTH DAY " ; printf "HH:MM/YEAR NAME SYMLINK\n" ; ls -lrt | sed 1d) | column -t'
-islinux && alias ls='ls --color=auto'
-ismacos && alias ls='ls -G'
+#ismacos && alias ls='ls -G'
 #alias mgrep='mgit -cp grep'
 # When network is down use this:
 #alias ls='ls -F'
 alias mutt='TERM=screen-256color mutt'
+alias mutthn='mutt -f'
 alias muttman='col -b </usr/local/share/doc/mutt/manual.txt|view -'
 alias mv='mv -i'
 alias rm='rm -i'
 alias simplePS='precmd(){};chpwd(){};RPROMPT= PS1="\$ "'
 alias ttk='tentakel'
 alias vgrep='git grep -Ovi'
+alias viz='vim $(fzf)'
 alias v='git number -c vim'
 alias vq='vimquit'
 alias vsv='ge vi --servername vsv'
@@ -72,12 +73,20 @@ alias wl='vi -o ~/work.{todo,doing,done}'
 alias pl='vi -o ~/mine.{todo,doing,done}'
 alias zen="zstyle ':vcs_info:*' enable"
 
+if ismacos; then
+  alias ls='gls --literal --color=auto -F'
+  alias date=gdate
+  alias grep='ggrep --color=auto'
+  alias rm='grm -i'
+  alias sleep=gsleep
+  alias units=gunits
+fi
+
 for cmd in \
-        search \
-	find \
         dpkg \
-        vif \
+	find \
         sql \
+        vif \
         youtube-dl
 do
 	alias $cmd="noglob $cmd"
@@ -88,6 +97,10 @@ compdef vih=vimhelp
 compdef gn=git
 compdef ttk=tentakel
 # compdef _git co=git-checkout
+
+function calc() {
+	printf "scale=16;$*"'\n'|bc --mathlib
+}
 
 function chromepdf() {
   url=${1?need url}
